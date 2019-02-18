@@ -6,11 +6,11 @@
 
     <div class="project-content">
       <h4>{{ project.name }}</h4>
-      <div class="date">
-        {{ $d(project.date, "short") | capitalize }}
-      </div>
       <div class="type">
         {{ $t(`projects.types.${project.type}`) }}
+      </div>
+      <div class="date">
+        {{ $d(project.date, "short") | capitalize }}
       </div>
       <div class="short-description" v-html="project.short[$i18n.locale]" />
 
@@ -42,7 +42,7 @@ export default {
     };
   },
   mounted() {
-    this.logo = `images/${project.id}.png`;
+    this.logo = `images/${this.project.id}.png`;
   },
   filters: {
     capitalize(value) {

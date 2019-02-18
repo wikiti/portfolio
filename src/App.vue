@@ -4,3 +4,7 @@
     <router-view />
   </div>
 </template>
+
+<style lang="scss">
+@import "@/assets/stylesheets/globals.scss";
+</style>

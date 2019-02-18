@@ -1,8 +1,11 @@
 <template>
   <div class="contact">
     <form>
-      <!-- TODO: Fields -->
-      <input type="submit" />
+      <input name="name" type="text" :placeholder="$t('contact.name')" />
+      <input name="contact" type="text" :placeholder="$t('contact.contact')" />
+      <textarea name="message" :placeholder="$t('contact.message')" />
+
+      <input type="submit" :value="$t('contact.submit')" />
     </form>
   </div>
 </template>

@@ -41,6 +41,28 @@ const messages = {
       resources: {
         website: 'Website'
       }
+    },
+    contact: {
+      name: 'Name',
+      contact: 'Email or phone',
+      message: 'Message',
+      submit: 'Submit'
+    },
+    footer: {
+      location: {
+        title: 'Address',
+        body: '38190 Santa Cruz de Tenerife'
+      },
+      social: {
+        title: 'Social'
+      },
+      contact: {
+        title: 'Contact',
+        email: {
+          label: 'Email',
+          value: 'info@danielherzog.es'
+        }
+      }
     }
   },
   es: {
@@ -65,6 +87,28 @@ const messages = {
       },
       resources: {
         website: 'Sitio web'
+      }
+    },
+    contact: {
+      name: 'Nombre',
+      contact: 'Correo o teléfono',
+      message: 'Mensaje',
+      submit: 'Enviar'
+    },
+    footer: {
+      location: {
+        title: 'Localidad',
+        body: '38190 Santa Cruz de Tenerife'
+      },
+      social: {
+        title: 'Redes sociales'
+      },
+      contact: {
+        title: 'Contacto',
+        email: {
+          label: 'Correo',
+          value: 'info@danielherzog.es'
+        }
       }
     }
   }
