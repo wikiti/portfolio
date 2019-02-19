@@ -60,7 +60,7 @@ const messages = {
       contact: {
         title: 'Contact',
         email: {
-          label: 'Email',
+          label: 'Email:',
           value: 'info@danielherzog.es'
         }
       }
@@ -108,7 +108,7 @@ const messages = {
       contact: {
         title: 'Contacto',
         email: {
-          label: 'Correo',
+          label: 'Correo:',
           value: 'info@danielherzog.es'
         }
       }

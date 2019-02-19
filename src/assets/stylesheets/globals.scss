@@ -13,10 +13,11 @@
 
   font-size: 1rem;
   font-family: 'Open Sans', sans-serif;
-  font-weight: normal;
+  font-weight: inherit;
+  font-style: inherit;
   line-height: 1.5rem;
 
-  color: $black;
+  color: inherit;
   text-decoration: none;
 }
 
@@ -31,12 +32,17 @@
   border: 1px solid $black;
 }
 
+%bold {
+  font-weight: bold;
+}
+
 @mixin heading($scale) {
+  @extend %bold;
+
   margin-top: $medium-spacing;
   margin-bottom: $medium-spacing;
 
   font-size: $font-size * $scale;
-  font-weight: bold;
   line-height: 1.2;
 }
 
@@ -61,7 +67,10 @@ body {
   @extend %centered-block;
 
   background-color: $white;
+  color: $black;
   padding: $large-spacing;
+  font-weight: normal;
+  font-style: normal;
 
   max-width: $max-width;
 }
@@ -105,7 +114,7 @@ h3 {
   cursor: pointer;
 
   color: $black;
-  padding: $small-spacing $medium-spacing;
+  padding: $small-spacing;
   
   &:hover, &:focus {
     background-color: $black;

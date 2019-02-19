@@ -1,29 +1,33 @@
 <template>
-  <footer>
-    <div class="location">
+  <footer class="block">
+    <div class="location block-third">
       <h3>{{ $t('footer.location.title') }}</h3>
-      <p>{{ $t('footer.location.body') }}</p>
+      <address>{{ $t('footer.location.body') }}</address>
 
     </div>
 
-    <div class="social">
+    <div class="social block-third">
       <h3>{{ $t('footer.social.title') }}</h3>
 
       <ul>
         <li v-for="social in socialLinks" :key="social.id">
           <a :href="social.url">
-            <Icon :name="social.icon" />
+            <Icon :name="social.icon" scale="2" />
             <!--<span class="fa" :class="`fa-${key}`" />-->
           </a>
         </li>
       </ul>
     </div>
 
-    <div class="contact">
+    <div class="contact block-third">
       <h3>{{ $t('footer.contact.title') }}</h3>
       <dl>
         <dt>{{ $t('footer.contact.email.label') }}</dt>
-        <dd>{{ $t('footer.contact.email.value') }}</dd>
+        <dd>
+          <a :href="`mailto:${$t('footer.contact.email.value')}`">
+            {{ $t('footer.contact.email.value') }}
+          </a>
+        </dd>
       </dl>
     </div>
   </footer>
@@ -46,3 +50,41 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss">
+@import "@/assets/stylesheets/measures.scss";
+@import "@/assets/stylesheets/globals.scss";
+
+footer {
+  @extend %centered;
+
+  @include respond-to(small) {
+    text-align: unset;
+  }
+}
+
+ul {
+  list-style: none;
+
+  li {
+    @extend %button;
+
+    display: inline-block;
+
+    &:not(:first-child) {
+      margin-left: $small-spacing;
+    }
+  }
+}
+
+dl {
+  dt, dd {
+    display: inline-block;
+  }
+
+  dd {
+    @extend %bold;
+    margin-left: $small-spacing;
+  }
+}
+</style>

@@ -11,20 +11,20 @@ $font-size: 1.1rem;
 
 // Sizing
 // -------------------------------
-$max-width: 700px;
+$max-width: 800px;
 
 // Break points
 // -------------------------------
 
 @mixin respond-to($breakpoint) {
   @if $breakpoint == "small" {
-    @media (min-width: $max-width) {
+    @media (max-width: $max-width - 1px) {
       @content;
     }
   }
 
   @else {
-    @media (max-width: $max-width) {
+    @media (min-width: $max-width) {
       @content;
     }
   }
@@ -43,8 +43,8 @@ $max-width: 700px;
 .block-half {
   @extend .block;
 
-  @include respond-to(small) {
-    width: 50%;
+  @include respond-to(medium) {
+    width: (100% / 2);
 
     &:first-child {
       padding-right: $medium-spacing;
@@ -52,6 +52,25 @@ $max-width: 700px;
   
     &:last-child {
       padding-left: $medium-spacing;
+    }
+  }
+}
+
+.block-third {
+  @extend .block;
+
+  @include respond-to(medium) {
+    width: (100% / 3);
+
+    padding-right: $medium-spacing;
+    padding-left: $medium-spacing;
+
+    &:first-child {
+      padding-left: 0;
+    }
+  
+    &:last-child {
+      padding-right: 0;
     }
   }
 }

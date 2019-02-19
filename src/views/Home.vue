@@ -2,11 +2,15 @@
   <div class="home">
     <Header />
 
+    <hr>
+
     <div class="content">
       <Summary />
       <Projects />
       <Contact />
     </div>
+
+    <hr>
 
     <Footer />
   </div>
