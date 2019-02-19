@@ -1,13 +1,13 @@
 <template>
   <footer>
     <div class="location">
-      <h4>{{ $t('footer.location.title') }}</h4>
+      <h3>{{ $t('footer.location.title') }}</h3>
       <p>{{ $t('footer.location.body') }}</p>
 
     </div>
 
     <div class="social">
-      <h4>{{ $t('footer.social.title') }}</h4>
+      <h3>{{ $t('footer.social.title') }}</h3>
 
       <ul>
         <li v-for="social in socialLinks" :key="social.id">
@@ -20,7 +20,7 @@
     </div>
 
     <div class="contact">
-      <h4>{{ $t('footer.contact.title') }}</h4>
+      <h3>{{ $t('footer.contact.title') }}</h3>
       <dl>
         <dt>{{ $t('footer.contact.email.label') }}</dt>
         <dd>{{ $t('footer.contact.email.value') }}</dd>

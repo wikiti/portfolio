@@ -43,6 +43,7 @@ const messages = {
       }
     },
     contact: {
+      title: 'Contact',
       name: 'Name',
       contact: 'Email or phone',
       message: 'Message',
@@ -90,6 +91,7 @@ const messages = {
       }
     },
     contact: {
+      title: 'Contacto',
       name: 'Nombre',
       contact: 'Correo o teléfono',
       message: 'Mensaje',

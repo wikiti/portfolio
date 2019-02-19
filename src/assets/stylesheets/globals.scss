@@ -1,14 +1,91 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700');
+
+@import "./colors.scss";
+@import "./measures.scss";
+
 // Reset default browser rules
 // -------------------------------
 
 * {
   margin: 0;
   padding: 0;
+  vertical-align: top;
 
-  font-size: 100%;
-  line-height: 1;
+  font-size: 1rem;
+  font-family: 'Open Sans', sans-serif;
   font-weight: normal;
+  line-height: 1;
 
-  color: black;
+  color: $black;
   text-decoration: none;
+}
+
+// Helpers
+// -------------------------------
+
+@mixin spaced($padding: $medium-spacing) {
+  margin-top: $padding;
+  margin-bottom: $padding;
+}
+
+@mixin heading($scale) {
+  @include spaced();
+
+  font-size: $font-size * $scale;
+  font-weight: bold;
+}
+
+%centered {
+  text-align: center;
+}
+
+%justified {
+  text-align: justify;
+}
+
+%centered-block {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+// Global
+// -------------------------------
+
+body {
+  @extend %centered-block;
+
+  background-color: $white;
+  padding: $large-spacing;
+
+  max-width: 800px;
+}
+
+p {
+  @include spaced();
+  @extend %justified;
+
+  text-indent: $large-spacing;
+}
+
+// Headings
+// -------------------------------
+
+h1 {
+  @include heading(2.5);
+  @extend %centered;
+
+  text-align: center;
+}
+
+h1.subtitle {
+  @include heading(1);
+}
+
+h2 {
+  @include heading(1.5);
+}
+
+h3 {
+  @include heading(1.2);
 }

@@ -1,5 +1,6 @@
 <template>
   <div class="contact">
+    <h2>{{ $t('contact.title') }}</h2>
     <form>
       <input name="name" type="text" :placeholder="$t('contact.name')" />
       <input name="contact" type="text" :placeholder="$t('contact.contact')" />

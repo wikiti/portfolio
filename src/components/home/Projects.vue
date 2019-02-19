@@ -1,6 +1,6 @@
 <template>
   <div class="projects">
-    <h3>{{ $t("projects.title") }}</h3>
+    <h2>{{ $t("projects.title") }}</h2>
 
     <div v-if="projects" class="project-list">
       <Project v-for="project in visibleProjects" :project="project" :key="project.id" />

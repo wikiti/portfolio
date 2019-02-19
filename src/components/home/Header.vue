@@ -7,7 +7,7 @@
 
     <h1>{{ $t("title") }}</h1>
     <hr>
-    <h2>{{ $t("subtitle") }}</h2>
+    <h1 class="subtitle">{{ $t("subtitle") }}</h1>
   </header>
 </template>
 

@@ -5,7 +5,7 @@
     </div>
 
     <div class="project-content">
-      <h4>{{ project.name }}</h4>
+      <h3>{{ project.name }}</h3>
       <div class="type">
         {{ $t(`projects.types.${project.type}`) }}
       </div>

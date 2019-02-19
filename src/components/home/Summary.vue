@@ -1,6 +1,6 @@
 <template>
   <div class="summary">
-    <h3>{{ $t("summary.title") }}</h3>
+    <h2>{{ $t("summary.title") }}</h2>
     <p class="summary-left">{{ $t("summary.left") }}</p>
     <p class="summary-right">{{ $t("summary.right") }}</p>
     <a class="download" :href="downloadLink">{{ $t("summary.download") }}</a>
@@ -17,3 +17,21 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss">
+@import "@/assets/stylesheets/measures.scss";
+
+p.summary-left, p.summary-right {
+  display: inline-block;
+  box-sizing: border-box;
+  width: 50%;
+}
+
+p.summary-left {
+  padding-right: $medium-spacing;
+}
+
+p.summary-right {
+  padding-left: $medium-spacing;
+}
+</style>
