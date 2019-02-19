@@ -1,8 +1,12 @@
 <template>
   <div class="summary">
     <h2>{{ $t("summary.title") }}</h2>
-    <p class="summary-left">{{ $t("summary.left") }}</p>
-    <p class="summary-right">{{ $t("summary.right") }}</p>
+
+    <div class="block">
+      <p class="block-half">{{ $t("summary.left") }}</p>
+      <p class="block-half">{{ $t("summary.right") }}</p>
+    </div>
+
     <a class="download" :href="downloadLink">{{ $t("summary.download") }}</a>
   </div>
 </template>
@@ -19,19 +23,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/stylesheets/measures.scss";
+@import "@/assets/stylesheets/globals.scss";
 
-p.summary-left, p.summary-right {
-  display: inline-block;
-  box-sizing: border-box;
-  width: 50%;
-}
-
-p.summary-left {
-  padding-right: $medium-spacing;
-}
-
-p.summary-right {
-  padding-left: $medium-spacing;
+.download {
+  @extend %button;
 }
 </style>

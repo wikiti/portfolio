@@ -14,7 +14,7 @@
   font-size: 1rem;
   font-family: 'Open Sans', sans-serif;
   font-weight: normal;
-  line-height: 1;
+  line-height: 1.5rem;
 
   color: $black;
   text-decoration: none;
@@ -23,16 +23,21 @@
 // Helpers
 // -------------------------------
 
-@mixin spaced($padding: $medium-spacing) {
-  margin-top: $padding;
-  margin-bottom: $padding;
+%animated {
+  transition: all 0.2s ease;
+}
+
+%bordered {
+  border: 1px solid $black;
 }
 
 @mixin heading($scale) {
-  @include spaced();
+  margin-top: $medium-spacing;
+  margin-bottom: $medium-spacing;
 
   font-size: $font-size * $scale;
   font-weight: bold;
+  line-height: 1.2;
 }
 
 %centered {
@@ -58,13 +63,13 @@ body {
   background-color: $white;
   padding: $large-spacing;
 
-  max-width: 800px;
+  max-width: $max-width;
 }
 
 p {
-  @include spaced();
   @extend %justified;
 
+  margin-bottom: $medium-spacing;
   text-indent: $large-spacing;
 }
 
@@ -88,4 +93,22 @@ h2 {
 
 h3 {
   @include heading(1.2);
+}
+
+// Buttons
+// -------------------------------
+
+%button {
+  @extend %bordered, %animated;
+
+  display: inline-block;
+  cursor: pointer;
+
+  color: $black;
+  padding: $small-spacing $medium-spacing;
+  
+  &:hover, &:focus {
+    background-color: $black;
+    color: $white;
+  }
 }

@@ -7,4 +7,51 @@ $huge-spacing: $large-spacing * 2;
 
 // Font sizes
 // -------------------------------
-$font-size: 1rem;
+$font-size: 1.1rem;
+
+// Sizing
+// -------------------------------
+$max-width: 700px;
+
+// Break points
+// -------------------------------
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == "small" {
+    @media (min-width: $max-width) {
+      @content;
+    }
+  }
+
+  @else {
+    @media (max-width: $max-width) {
+      @content;
+    }
+  }
+}
+
+// Helpers
+// -------------------------------
+
+.block {
+  display: inline-block;
+  box-sizing: border-box;
+
+  width: 100%;
+}
+
+.block-half {
+  @extend .block;
+
+  @include respond-to(small) {
+    width: 50%;
+
+    &:first-child {
+      padding-right: $medium-spacing;
+    }
+  
+    &:last-child {
+      padding-left: $medium-spacing;
+    }
+  }
+}

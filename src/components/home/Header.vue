@@ -5,6 +5,7 @@
            @click="changeLocale(locale)" >{{locale}}</a>
     </div>
 
+    <div class="decoration"></div>
     <h1>{{ $t("title") }}</h1>
     <hr>
     <h1 class="subtitle">{{ $t("subtitle") }}</h1>
@@ -27,3 +28,11 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss">
+@import "@/assets/stylesheets/measures.scss";
+
+h1.subtitle {
+  margin-bottom: $huge-spacing;
+}
+</style>
