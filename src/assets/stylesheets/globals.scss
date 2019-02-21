@@ -82,6 +82,10 @@ body {
   font-style: normal;
 
   max-width: $max-width;
+
+  &[data-modal-count]:not([data-modal-count="0"]) {
+    overflow-y: hidden;
+  }
 }
 
 p {

@@ -16,6 +16,9 @@ export default {
   props: {
     value: Boolean
   },
+  created() {
+    window.addEventListener('keyup', this.keyEvent);
+  },
   methods: {
     closeModal() {
       this.$emit('input', false);
@@ -24,12 +27,22 @@ export default {
       if (event.target.classList.contains('modal-container')) {
         this.closeModal();
       }
+    },
+    keyEvent(event) {
+      if (event.key === 'Escape') {
+        this.closeModal();
+      }
     }
   },
   watch: {
     value() {
-      // TODO: count opened modals with vuex, and manage `body` classes to disable overflow-y
+      const delta = this.value ? 1 : -1;
+      const count = parseInt(window.document.body.dataset.modalCount, 10);
+      window.document.body.dataset.modalCount = count + delta;
     }
+  },
+  beforeDestroy() {
+    window.removeEventListener('keyup', this.keyEvent);
   }
 };
 </script>
