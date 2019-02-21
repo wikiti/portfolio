@@ -11,9 +11,8 @@
 
       <ul>
         <li v-for="social in socialLinks" :key="social.id">
-          <a :href="social.url">
+          <a class="button" :href="social.url">
             <Icon :name="social.icon" scale="2" />
-            <!--<span class="fa" :class="`fa-${key}`" />-->
           </a>
         </li>
       </ul>
@@ -24,9 +23,8 @@
       <dl>
         <dt>{{ $t('footer.contact.email.label') }}</dt>
         <dd>
-          <a :href="`mailto:${$t('footer.contact.email.value')}`">
-            {{ $t('footer.contact.email.value') }}
-          </a>
+          <a :href="`mailto:${$t('footer.contact.email.value')}`"
+            >{{ $t('footer.contact.email.value') }}</a>
         </dd>
       </dl>
     </div>
@@ -67,8 +65,6 @@ ul {
   list-style: none;
 
   li {
-    @extend %button;
-
     display: inline-block;
 
     &:not(:first-child) {
@@ -83,7 +79,6 @@ dl {
   }
 
   dd {
-    @extend %bold;
     margin-left: $small-spacing;
   }
 }

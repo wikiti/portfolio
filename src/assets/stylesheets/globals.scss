@@ -7,8 +7,8 @@
 // -------------------------------
 
 * {
-  margin: 0;
-  padding: 0;
+  margin: $no-spacing;
+  padding: $no-spacing;
   vertical-align: top;
 
   font-size: 1rem;
@@ -36,7 +36,12 @@
   font-weight: bold;
 }
 
+@mixin font-scale($scale) {
+  font-size: $font-size * $scale;
+}
+
 @mixin heading($scale) {
+  @include font-scale($scale);
   @extend %bold;
 
   margin-top: $medium-spacing;
@@ -52,6 +57,10 @@
 
 %justified {
   text-align: justify;
+}
+
+%right-aligned {
+  text-align: right;
 }
 
 %centered-block {
@@ -89,7 +98,7 @@ h1 {
   @include heading(2.5);
   @extend %centered;
 
-  text-align: center;
+  margin-top: $no-spacing;
 }
 
 h1.subtitle {
@@ -98,26 +107,58 @@ h1.subtitle {
 
 h2 {
   @include heading(1.5);
+
+  margin-top: $huge-spacing;
+
+  @include respond-to(small) {
+    margin-top: $large-spacing;
+  }
 }
 
 h3 {
   @include heading(1.2);
+
+  margin-top: $no-spacing;
 }
 
-// Buttons
+// Links and buttons
 // -------------------------------
 
-%button {
+a:not(.button) {
+  color: $gray;
+  outline: none;
+  cursor: pointer;
+
+  &:before {
+    content: "[";
+  }
+
+  &:after {
+    content: "]";
+  }
+
+  &:focus {
+    text-decoration: underline;
+  }
+}
+
+button, a.button {
   @extend %bordered, %animated;
 
   display: inline-block;
   cursor: pointer;
 
+  background-color: $white;
   color: $black;
   padding: $small-spacing;
   
   &:hover, &:focus {
     background-color: $black;
     color: $white;
+    outline: none;
+  }
+
+  &:focus {
+    text-decoration: underline;
   }
 }

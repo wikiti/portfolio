@@ -116,8 +116,15 @@ const messages = {
   }
 };
 
+const availableLocales = Object.keys(messages);
+let locale = (navigator.language || navigator.userLanguage).split(/[-_]/)[0];
+
+if (!availableLocales.includes(locale)) {
+  locale = 'en';
+}
+
 export default new VueI18n({
-  locale: 'es',
+  locale,
   dateTimeFormats,
   messages
 });

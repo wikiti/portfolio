@@ -7,7 +7,7 @@
       <p class="block-half">{{ $t("summary.right") }}</p>
     </div>
 
-    <a class="download" :href="downloadLink">{{ $t("summary.download") }}</a>
+    <a class="button download" :href="downloadLink">{{ $t("summary.download") }}</a>
   </div>
 </template>
 
@@ -21,11 +21,3 @@ export default {
   }
 };
 </script>
-
-<style scoped lang="scss">
-@import "@/assets/stylesheets/globals.scss";
-
-.download {
-  @extend %button;
-}
-</style>
