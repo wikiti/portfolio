@@ -50,7 +50,6 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/stylesheets/measures.scss";
 @import "@/assets/stylesheets/globals.scss";
 
 footer {
@@ -58,6 +57,14 @@ footer {
 
   @include respond-to(small) {
     text-align: unset;
+  }
+
+  margin-top: $large-spacing;
+}
+
+h3 {
+  @include respond-to(small) {
+    margin-top: $medium-spacing;
   }
 }
 

@@ -1,5 +1,5 @@
 <template>
-  <div v-if="value" role="dialog" tabindex="-1" class="modal-container" @click="dismissModal">
+  <div v-if="value" role="dialog" tabindex="0" class="modal-container" @click="dismissModal">
     <div class="modal">
       <div class="close" @click="closeModal" aria-label="Close dialog">&times;</div>
 
@@ -37,8 +37,8 @@ export default {
   watch: {
     value() {
       const delta = this.value ? 1 : -1;
-      const count = parseInt(window.document.body.dataset.modalCount, 10);
-      window.document.body.dataset.modalCount = count + delta;
+      const count = parseInt(window.document.body.dataset.modalCount || 0, 10) + delta;
+      window.document.body.dataset.modalCount = count;
     }
   },
   beforeDestroy() {

@@ -1,7 +1,9 @@
 <template>
   <div class="project">
     <div class="project-logo">
-      <img :src="logo" alt="logo" />
+      <a class="clear-link more-info" href="#modal" @click="openModal">
+        <img :src="logo" :alt="$t('projects.logo')" />
+      </a>
     </div>
 
     <div class="project-content">
@@ -15,7 +17,7 @@
         </div>
       </div>
 
-      <div class="short-description" v-html="project.short[$i18n.locale]" />
+      <p class="short-description" v-html="project.short[$i18n.locale]" />
 
       <div class="links">
         <a v-if="project.resource" class="resource" target="_blank" :href="project.resource.url"
@@ -28,7 +30,33 @@
 
     <Modal v-model="showModal" class="project-modal">
       <h3>{{ project.name }}</h3>
-      TODO: Show detailed info
+
+      <p class="short-description" v-html="project.short[$i18n.locale]" />
+
+      <div class="attachments">
+        <div class="attachment" v-for="attachment in project.attachments"
+             :key="attachment.resource">
+
+          <a class="clear-link image" target="_blank" v-if="attachment.type === 'image'"
+             :href="attachment.resource">
+            <img :alt="$t('projects.logo')" :src="attachment.resource" />
+          </a>
+
+          <div class="youtube" v-if="attachment.type === 'youtube'">
+            <iframe width="560" height="315" :src="attachment.resource"
+                    frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen />
+          </div>
+
+          <!-- TODO: Other resource types -->
+        </div>
+      </div>
+
+      <p class="description" v-html="project.description[$i18n.locale]" />
+
+      <div class="links">
+        <a v-if="project.resource" class="resource" target="_blank" :href="project.resource.url"
+          >{{ $t(`projects.resources.${project.resource.type}`) }}</a>
+      </div>
     </Modal>
   </div>
 </template>
@@ -61,8 +89,8 @@ export default {
       if (!value) {
         return '';
       }
-      const string = value.toString();
-      return string.charAt(0).toUpperCase() + string.slice(1);
+      const string = value.toString().toLowerCase().replace(/[^a-z0-9., -_]/, '');
+      return string.replace(/^\w/, char => char.toUpperCase());
     }
   }
 };
@@ -74,19 +102,17 @@ export default {
 $image-width: 150px;
 $small-image-width: 100px;
 
+.project {
+  margin-bottom: $large-spacing;
+}
+
 .project-logo {
   display: inline-block;
   width: $image-width;
 
   img {
-    @extend %animated;
-
     width: 100%;
     filter: grayscale(100%);
-
-    &:hover {
-      filter: none;
-    }
   }
 
   @include respond-to(small) {
@@ -101,29 +127,34 @@ $small-image-width: 100px;
   box-sizing: border-box;
   padding-left: $large-spacing;
 
-  .short-description {
-    margin: $medium-spacing $no-spacing;
-  }
-
   @include respond-to(small) {
     width: calc(100% - #{$small-image-width});
   }
+}
 
-  .links {
-    margin-top: $small-spacing;
+.links {
+  margin-top: $small-spacing;
 
-    a {
-      margin-right: $small-spacing;
-    }
+  a {
+    margin-right: $small-spacing;
   }
 }
 
 .type, .date {
   color: $gray;
+  margin-bottom: $medium-spacing;
 }
 
 .date {
   float: right;
   margin-left: $small-spacing;
+}
+
+.attachment {
+  margin-bottom: $medium-spacing;
+
+  img, iframe {
+    @extend %centered-block;
+  }
 }
 </style>

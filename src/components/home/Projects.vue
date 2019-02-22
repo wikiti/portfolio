@@ -5,10 +5,10 @@
     <div v-if="projects" class="project-list">
       <Project v-for="project in visibleProjects" :project="project" :key="project.id" />
 
-      <a v-if="projects.length != visibleProjects.length" class="more" @click="showMore">
-        {{ $t("projects.more") }}
-      </a>
+      <a v-if="visibleProjects.length < projects.length" class="more" @click="showMore"
+        >{{ $t("projects.more") }}</a>
     </div>
+
     <div v-else class="loading">
       {{ $t("projects.loading") }}
     </div>
@@ -25,7 +25,7 @@ export default {
   data() {
     return {
       projects: null,
-      visibleProjectCount: 4
+      visibleProjectCount: 3
     };
   },
   mounted() {
@@ -40,7 +40,7 @@ export default {
   },
   methods: {
     showMore() {
-      this.visibleProjectCount += 4;
+      this.visibleProjectCount += 3;
     }
   }
 };

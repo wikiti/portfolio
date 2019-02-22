@@ -35,6 +35,8 @@ const messages = {
       more: 'Show more',
       info: 'More info',
       loading: 'Loading projects',
+      logo: 'Logo',
+      attachment: 'Attachment',
       types: {
         videogame_web: 'Web videogame'
       },
@@ -44,9 +46,9 @@ const messages = {
     },
     contact: {
       title: 'Contact',
-      name: 'Name',
-      contact: 'Email or phone',
-      message: 'Message',
+      name: 'Name (*)',
+      contact: 'Email or phone (*)',
+      message: 'Message (*)',
       submit: 'Submit'
     },
     footer: {
@@ -83,6 +85,8 @@ const messages = {
       more: 'Mostrar más',
       info: 'Más info.',
       loading: 'Cargando proyectos',
+      logo: 'Logotipo',
+      attachment: 'Adjunto',
       types: {
         videogame_web: 'Videojuego web'
       },
@@ -92,9 +96,9 @@ const messages = {
     },
     contact: {
       title: 'Contacto',
-      name: 'Nombre',
-      contact: 'Correo o teléfono',
-      message: 'Mensaje',
+      name: 'Nombre (*)',
+      contact: 'Correo o teléfono (*)',
+      message: 'Mensaje (*)',
       submit: 'Enviar'
     },
     footer: {
