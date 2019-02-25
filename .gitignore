@@ -19,3 +19,8 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
+
+# Firebase ignored files
+.firebaserc
+firebase-debug.log*
+database-debug.log*

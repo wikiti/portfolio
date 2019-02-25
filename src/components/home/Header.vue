@@ -5,7 +5,6 @@
            @click="changeLocale(locale)" >{{locale}}</a>
     </div>
 
-    <div class="decoration"></div>
     <h1>{{ $t("title") }}</h1>
     <h1 class="subtitle">{{ $t("subtitle") }}</h1>
   </header>

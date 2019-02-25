@@ -161,7 +161,7 @@ button, a.button, input[type=submit]  {
     cursor: unset;
   }
 
-  :not([disabled]) {
+  &:not([disabled]) {
     &:hover, &:focus {
       background-color: $black;
       color: $white;
