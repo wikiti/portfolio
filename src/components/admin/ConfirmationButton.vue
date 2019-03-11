@@ -1,0 +1,33 @@
+<template>
+  <button type="button" @click="press" @mouseout="mouseOut">
+    <slot v-if="!first" />
+    <template v-else>
+      {{ $t('admin.confirm') }}
+    </template>
+  </button>
+</template>
+
+<script>
+export default {
+  name: 'ConfirmationButton',
+  data() {
+    return { first: false };
+  },
+  methods: {
+    press() {
+      if (!this.first) {
+        this.first = true;
+        // TODO: Set timeout to reset
+        return;
+      }
+
+      // TODO: Clear timeout
+      this.first = false;
+      this.$emit('click');
+    },
+    mouseOut() {
+      this.first = false;
+    }
+  }
+};
+</script>

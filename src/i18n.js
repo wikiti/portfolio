@@ -20,6 +20,24 @@ const dateTimeFormats = {
 
 const messages = {
   en: {
+    admin: {
+      confirm: 'Are you sure?',
+      projects: {
+        title: 'Projects',
+        select_type: 'Select a project type',
+        select_resource_type: 'Select a resource type',
+        select_attachment_type: 'Select an attachment type',
+        attachment_error: 'There has been an error when uploading the attachment',
+        new: 'New',
+        create: 'Create',
+        save: 'Save',
+        delete: 'Delete',
+        result: {
+          ok: 'Project was successfully saved',
+          error: 'Something went wrong while updating the project'
+        }
+      }
+    },
     title: 'Daniel Herzog Cruz',
     subtitle: 'Software Engineer - Full stack developer - Game developer',
     summary: {
@@ -37,11 +55,21 @@ const messages = {
       loading: 'Loading projects',
       logo: 'Logo',
       attachment: 'Attachment',
+      attachments: {
+        youtube: 'YouTube',
+        image: 'Image'
+      },
       types: {
-        videogame_web: 'Web videogame'
+        website: 'Website',
+        videogame_web: 'Web videogame',
+        videogame_native: 'Native videogame',
+        app_web: 'Web app',
+        app_native: 'Native application'
       },
       resources: {
-        website: 'Website'
+        website: 'Website',
+        play_store: 'PlayStore',
+        repository: 'Repository'
       }
     },
     contact: {
@@ -69,6 +97,24 @@ const messages = {
     }
   },
   es: {
+    admin: {
+      confirm: '¿Estás seguro?',
+      projects: {
+        title: 'Proyectos',
+        select_type: 'Seleccione un tipo de proyecto',
+        select_resource_type: 'Seleccione un tipo de recurso',
+        select_attachment_type: 'Seleccione un tipo de adjunto',
+        attachment_error: 'Ha ocurrido un error al subir el adjunto',
+        new: 'Nuevo',
+        create: 'Crear',
+        save: 'Guardar',
+        delete: 'Borrar',
+        result: {
+          ok: 'El proyecto se guardó correctamente',
+          error: 'Ocurrió un error al actualizar el proyecto'
+        }
+      }
+    },
     title: 'Daniel Herzog Cruz',
     subtitle:
       'Ingeniero informático - Desarrollador web - Programador de videojuegos',
@@ -87,11 +133,21 @@ const messages = {
       loading: 'Cargando proyectos',
       logo: 'Logotipo',
       attachment: 'Adjunto',
+      attachments: {
+        youtube: 'YouTube',
+        image: 'Imagen'
+      },
       types: {
-        videogame_web: 'Videojuego web'
+        website: 'Página web',
+        videogame_web: 'Videojuego web',
+        videogame_native: 'Videojuego nativo',
+        app_web: 'Aplicación web',
+        app_native: 'Aplicación nativa'
       },
       resources: {
-        website: 'Sitio web'
+        website: 'Sitio web',
+        play_store: 'PlayStore',
+        repository: 'Repositorio'
       }
     },
     contact: {
@@ -127,8 +183,7 @@ if (!availableLocales.includes(locale)) {
   locale = 'en';
 }
 
-export default new VueI18n({
-  locale,
-  dateTimeFormats,
-  messages
-});
+const i18n = new VueI18n({ locale, dateTimeFormats, messages });
+i18n.availableLocales = availableLocales; // Custom property
+
+export default i18n;

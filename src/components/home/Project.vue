@@ -33,22 +33,18 @@
 
       <p class="short-description" v-html="project.short[$i18n.locale]" />
 
-      <div class="attachments">
-        <div class="attachment" v-for="attachment in project.attachments"
-             :key="attachment.resource">
+      <div class="attachment">
+        <a class="clear-link image" target="_blank" v-if="project.attachment.type === 'image'"
+            :href="project.attachment.type">
+          <img :alt="$t('projects.logo')" :src="project.attachment.url" />
+        </a>
 
-          <a class="clear-link image" target="_blank" v-if="attachment.type === 'image'"
-             :href="attachment.resource">
-            <img :alt="$t('projects.logo')" :src="attachment.resource" />
-          </a>
-
-          <div class="youtube" v-if="attachment.type === 'youtube'">
-            <iframe width="560" height="315" :src="attachment.resource"
-                    frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen />
-          </div>
-
-          <!-- TODO: Other resource types -->
+        <div class="youtube" v-if="project.attachment.type === 'youtube'">
+          <iframe width="560" height="315" :src="project.attachment.url"
+                  frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen />
         </div>
+
+        <!-- TODO: Other resource types -->
       </div>
 
       <p class="description" v-html="project.description[$i18n.locale]" />

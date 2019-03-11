@@ -30,7 +30,7 @@ export default {
   },
   mounted() {
     projects.get().then((data) => {
-      this.projects = data;
+      this.projects = data.sort((a, b) => (b.priority || 0) - (a.priority || 0));
     });
   },
   computed: {
