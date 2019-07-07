@@ -4,22 +4,24 @@
     <form @submit="checkForm">
       <input name="name" type="text" v-model="name" :class="{ errored: errors.name }"
              :placeholder="$t('contact.name')"
-             @blur="validate('name')" @focus="clearValidation('name')" />
+             @blur="validate('name')" @focus="clearValidation('name')" @disabled="sending" />
 
       <input name="contact" type="text" v-model="contact" :class="{ errored: errors.contact }"
              :placeholder="$t('contact.contact')"
-             @blur="validate('contact')" @focus="clearValidation('contact')" />
+             @blur="validate('contact')" @focus="clearValidation('contact')" @disabled="sending" />
 
       <textarea rows="3" name="message" v-model="message" :class="{ errored: errors.message }"
              :placeholder="$t('contact.message')"
-             @blur="validate('message')" @focus="clearValidation('message')" />
+             @blur="validate('message')" @focus="clearValidation('message')" @disabled="sending" />
 
-      <input type="submit" :value="$t('contact.submit')" :disabled="!validForm" />
+      <input type="submit" :value="$t('contact.submit')" :disabled="sending || !validForm" />
     </form>
   </div>
 </template>
 
 <script>
+import firebase from 'firebase';
+
 export default {
   name: 'Contact',
   data() {
@@ -27,7 +29,8 @@ export default {
       name: '',
       contact: '',
       message: '',
-      errors: { name: null, contact: null, message: null }
+      errors: { name: null, contact: null, message: null },
+      sending: false
     };
   },
   computed: {
@@ -38,17 +41,17 @@ export default {
   },
   methods: {
     checkForm(event) {
+      event.preventDefault();
+
       this.validate('name');
       this.validate('contact');
       this.validate('message');
 
-      // TODO: Handle ajax submit
-      if (!this.validForm()) {
-        event.preventDefault();
-        return false;
+      if (this.validForm) {
+        this.submitForm();
       }
 
-      return true;
+      return false;
     },
     clearValidation(field) {
       this.errors[field] = null;
@@ -58,6 +61,22 @@ export default {
     },
     isPresent(field) {
       return field && field !== '' && field.replace(/\s+/g, '').length;
+    },
+    submitForm() {
+      this.sending = true;
+
+      const contactForm = firebase.functions().httpsCallable('contactForm');
+      contactForm({ name: this.name, contact: this.contact, message: this.message })
+        .then(() => {
+          console.log('TODO: Show success message!');
+        })
+        .catch(() => {
+          console.error('TODO: Show error message');
+        })
+        .finally(() => {
+          console.log(this);
+          this.sending = false;
+        });
     }
   }
 };
