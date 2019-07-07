@@ -95,6 +95,11 @@ p {
   text-indent: $large-spacing;
 }
 
+::selection {
+  background-color: $gray;
+  color: $white;
+}
+
 // Headings
 // -------------------------------
 
@@ -172,6 +177,13 @@ button, a.button, input[type=submit]  {
       text-decoration: underline;
     }
   }
+}
+
+// Notifications and errors
+// -------------------------------
+
+.errored {
+  color: $red;
 }
 
 // Images and other

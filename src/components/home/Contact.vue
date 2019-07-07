@@ -16,21 +16,32 @@
 
       <input type="submit" :value="$t('contact.submit')" :disabled="sending || !validForm" />
     </form>
+
+    <Modal v-model="modal.show" class="contact-modal">
+      <p class="errored" v-if="modal.error">{{ $t('contact.error') }}</p>
+      <p v-else>{{ $t('contact.success') }}</p>
+    </Modal>
   </div>
 </template>
 
 <script>
 import firebase from 'firebase';
+import Modal from '@/components/Modal.vue';
 
 export default {
   name: 'Contact',
+  components: { Modal },
   data() {
     return {
       name: '',
       contact: '',
       message: '',
       errors: { name: null, contact: null, message: null },
-      sending: false
+      sending: false,
+      modal: {
+        show: false,
+        error: false
+      }
     };
   },
   computed: {
@@ -64,17 +75,16 @@ export default {
     },
     submitForm() {
       this.sending = true;
+      this.modal.show = false;
+      this.modal.error = false;
 
       const contactForm = firebase.functions().httpsCallable('contactForm');
       contactForm({ name: this.name, contact: this.contact, message: this.message })
-        .then(() => {
-          console.log('TODO: Show success message!');
-        })
         .catch(() => {
-          console.error('TODO: Show error message');
+          this.modal.error = true;
         })
         .finally(() => {
-          console.log(this);
+          this.modal.show = true;
           this.sending = false;
         });
     }
@@ -103,7 +113,6 @@ input[name=name], input[name=contact], textarea[name=message] {
 
   &.errored {
     border-color: $red;
-    color: $red;
 
     &::placeholder {
       color: $pink;

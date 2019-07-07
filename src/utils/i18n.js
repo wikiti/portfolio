@@ -82,7 +82,9 @@ const messages = {
       name: 'Name (*)',
       contact: 'Email or phone (*)',
       message: 'Message (*)',
-      submit: 'Submit'
+      submit: 'Submit',
+      success: 'Your message has been sent successfully.',
+      error: 'There was an error when sending your message. Please try again later.'
     },
     footer: {
       location: {
@@ -165,7 +167,9 @@ const messages = {
       name: 'Nombre (*)',
       contact: 'Correo o teléfono (*)',
       message: 'Mensaje (*)',
-      submit: 'Enviar'
+      submit: 'Enviar',
+      success: 'El mensaje se ha enviado correctamente.',
+      error: 'Ha ocurrido un error al enviar el mensaje. Por favor, inténtelo de nuevo más tarde.'
     },
     footer: {
       location: {
