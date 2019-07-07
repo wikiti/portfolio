@@ -21,7 +21,12 @@ const dateTimeFormats = {
 const messages = {
   en: {
     admin: {
+      title: 'Admin',
       confirm: 'Are you sure?',
+      curriculum: {
+        title: 'Curriculums',
+        attachment_error: 'There has been an error when uploading the attachment'
+      },
       projects: {
         title: 'Projects',
         select_type: 'Select a project type',
@@ -98,7 +103,12 @@ const messages = {
   },
   es: {
     admin: {
+      title: 'Admin',
       confirm: '¿Estás seguro?',
+      curriculum: {
+        title: 'Curriculums',
+        attachment_error: 'Ha ocurrido un error al subir el adjunto'
+      },
       projects: {
         title: 'Proyectos',
         select_type: 'Seleccione un tipo de proyecto',

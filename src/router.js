@@ -18,7 +18,11 @@ export default new Router({
     {
       path: '/admin',
       name: 'admin',
-      component: Admin
+      component: Admin,
+      beforeEnter: (to, from, next) => {
+        localStorage.adminVisited = true;
+        next();
+      }
     }
   ]
 });

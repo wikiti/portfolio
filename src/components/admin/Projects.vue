@@ -2,6 +2,8 @@
   <div class="admin-projects" v-if="projects">
     <h2>{{ $t('admin.projects.title') }}</h2>
 
+    <!-- TODO: Placeholders and labels -->
+
     <div class="admin-project" v-for="project in projects" :key="project.id" >
       <form @submit.prevent="updateProject(project)">
         <fieldset class="properties">
@@ -104,8 +106,8 @@ import Vue from 'vue';
 import uuid from 'uuid/v4';
 import _ from 'lodash';
 
-import firebase from '@/firebase';
-import projects from '@/resources/projects';
+import firebase from '@/utils/firebase';
+import remoteProjects from '@/resources/projects';
 import ConfirmationButton from './ConfirmationButton.vue';
 
 export default {
@@ -120,9 +122,8 @@ export default {
     };
   },
   mounted() {
-    projects.get().then((data) => {
-      this.projects = data;
-      // TODO: Filter data
+    remoteProjects.get().then((data) => {
+      this.projects = _.orderBy(data, ['priority'], ['desc']);
     });
   },
   methods: {
@@ -144,14 +145,14 @@ export default {
       Vue.delete(project, 'new');
       Vue.delete(project, 'result');
 
-      projects.upsert(project.id, project)
+      remoteProjects.upsert(project.id, project)
         .then(() => Vue.set(project, 'result', 'ok'))
         .catch(() => Vue.set(project, 'result', 'error'));
     },
     deleteProject(project) {
       const { id } = project;
 
-      projects.delete(id).then(() => {
+      remoteProjects.delete(id).then(() => {
         this.projects = _.reject(this.projects, { id });
       }).catch(() => Vue.set(project, 'result', 'error'));
     },

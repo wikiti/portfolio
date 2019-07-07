@@ -17,11 +17,9 @@ export default {
     press() {
       if (!this.first) {
         this.first = true;
-        // TODO: Set timeout to reset
         return;
       }
 
-      // TODO: Clear timeout
       this.first = false;
       this.$emit('click');
     },
