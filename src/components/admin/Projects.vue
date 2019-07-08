@@ -70,7 +70,7 @@
                  :disabled="project.attachment.state == 'process'" />
 
           <template v-if="project.attachment.type == 'image'">
-            <input readonly v-model="project.attachment.url" required />
+            <input type="text" readonly required v-model="project.attachment.url" />
             <input type="file" accept=".png,.jpg,.jpeg,.gif"
                    @change="uploadFile(project, $event)"
                    :disabled="project.attachment.state == 'process'" />

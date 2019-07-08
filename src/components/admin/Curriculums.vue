@@ -6,7 +6,7 @@
     <div v-for="curriculum in curriculums" :key="curriculum.id">
       <fieldset class="file">
         <label>{{curriculum.id}}</label>
-        <input readonly v-model="curriculum.url" required />
+        <input type="text" readonly required v-model="curriculum.url"/>
         <input type="file" accept=".pdf"
                 @change="uploadFile(curriculum, $event)"
                 :disabled="curriculum.state == 'process'" />

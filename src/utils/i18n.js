@@ -20,6 +20,11 @@ const dateTimeFormats = {
 
 const messages = {
   en: {
+    navbar: {
+      home: 'Home',
+      admin: 'Admin',
+      logout: 'Logout'
+    },
     admin: {
       title: 'Admin',
       confirm: 'Are you sure?',
@@ -101,9 +106,28 @@ const messages = {
           value: 'info@danielherzog.es'
         }
       }
+    },
+    signin: {
+      title: 'Sign in',
+      email: 'Email',
+      password: 'Password',
+      submit: 'Sign in',
+      signup: "I don't have a user account"
+    },
+    signup: {
+      title: 'Sign up',
+      email: 'Email',
+      password: 'Password',
+      submit: 'Sign up',
+      signup: 'I already have a user account'
     }
   },
   es: {
+    navbar: {
+      home: 'Inicio',
+      admin: 'Admin',
+      logout: 'Salir'
+    },
     admin: {
       title: 'Admin',
       confirm: '¿Estás seguro?',
@@ -186,6 +210,20 @@ const messages = {
           value: 'info@danielherzog.es'
         }
       }
+    },
+    signin: {
+      title: 'Inicio de sesión',
+      email: 'Correo',
+      password: 'Contraseña',
+      submit: 'Iniciar sesión',
+      signup: 'No tengo una cuenta de usuario'
+    },
+    signup: {
+      title: 'Registro',
+      email: 'Correo',
+      password: 'Contraseña',
+      submit: 'Registrarse',
+      signin: 'Ya tengo un usuario'
     }
   }
 };

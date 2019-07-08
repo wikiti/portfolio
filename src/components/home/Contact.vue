@@ -2,23 +2,23 @@
   <div class="contact">
     <h2>{{ $t('contact.title') }}</h2>
     <form @submit="checkForm">
-      <input name="name" type="text" v-model="name" :class="{ errored: errors.name }"
-             :placeholder="$t('contact.name')"
-             @blur="validate('name')" @focus="clearValidation('name')" @disabled="sending" />
+      <input name="name" type="text" v-model="name" :class="{ error: errors.name }"
+             :placeholder="$t('contact.name')" :disabled="sending"
+             @blur="validate('name')" @focus="clearValidation('name')" />
 
-      <input name="contact" type="text" v-model="contact" :class="{ errored: errors.contact }"
-             :placeholder="$t('contact.contact')"
-             @blur="validate('contact')" @focus="clearValidation('contact')" @disabled="sending" />
+      <input name="contact" type="text" v-model="contact" :class="{ error: errors.contact }"
+             :placeholder="$t('contact.contact')" :disabled="sending"
+             @blur="validate('contact')" @focus="clearValidation('contact')" />
 
-      <textarea rows="3" name="message" v-model="message" :class="{ errored: errors.message }"
-             :placeholder="$t('contact.message')"
-             @blur="validate('message')" @focus="clearValidation('message')" @disabled="sending" />
+      <textarea rows="3" name="message" v-model="message" :class="{ error: errors.message }"
+             :placeholder="$t('contact.message')" :disabled="sending"
+             @blur="validate('message')" @focus="clearValidation('message')" />
 
       <input type="submit" :value="$t('contact.submit')" :disabled="sending || !validForm" />
     </form>
 
     <Modal v-model="modal.show" class="contact-modal">
-      <p class="errored" v-if="modal.error">{{ $t('contact.error') }}</p>
+      <p class="error" v-if="modal.error">{{ $t('contact.error') }}</p>
       <p v-else>{{ $t('contact.success') }}</p>
     </Modal>
   </div>
@@ -94,31 +94,6 @@ export default {
 
 <style scoped lang="scss">
 @import "@/assets/stylesheets/globals.scss";
-
-input[name=name], input[name=contact], textarea[name=message] {
-  @extend .block;
-  @extend %bordered;
-
-  margin-bottom: $medium-spacing;
-  padding: $no-spacing $no-spacing $small-spacing $medium-spacing;
-  resize: none;
-
-  border-top: none;
-  border-right: none;
-  outline: none;
-
-  &::placeholder {
-    color: $gray;
-  }
-
-  &.errored {
-    border-color: $red;
-
-    &::placeholder {
-      color: $pink;
-    }
-  }
-}
 
 .contact {
   margin-bottom: $large-spacing;

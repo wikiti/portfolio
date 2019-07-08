@@ -1,11 +1,10 @@
 <template>
   <div class="admin">
-    <!-- Header -->
+    <h1>{{ $t('admin.title') }}</h1>
 
     <Curriculums />
     <Projects />
-
-    <!-- Social form -->
+    <!-- TODO: Social form -->
   </div>
 </template>
 

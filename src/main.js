@@ -1,6 +1,6 @@
 import Vue from 'vue';
-import App from './App.vue';
-import router from './router';
+import App from '@/App.vue';
+import router from '@/utils/router';
 import i18n from '@/utils/i18n';
 
 import 'vue-awesome/icons/brands/facebook';
