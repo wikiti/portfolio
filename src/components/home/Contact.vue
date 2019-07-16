@@ -1,31 +1,31 @@
 <template>
   <div class="contact">
-    <h2>{{ $t('contact.title') }}</h2>
+    <h2>{{ $t('home.contact.title') }}</h2>
     <form @submit="checkForm">
       <input name="name" type="text" v-model="name" :class="{ error: errors.name }"
-             :placeholder="$t('contact.name')" :disabled="sending"
+             :placeholder="$t('home.contact.name')" :disabled="sending"
              @blur="validate('name')" @focus="clearValidation('name')" />
 
       <input name="contact" type="text" v-model="contact" :class="{ error: errors.contact }"
-             :placeholder="$t('contact.contact')" :disabled="sending"
+             :placeholder="$t('home.contact.contact')" :disabled="sending"
              @blur="validate('contact')" @focus="clearValidation('contact')" />
 
       <textarea rows="3" name="message" v-model="message" :class="{ error: errors.message }"
-             :placeholder="$t('contact.message')" :disabled="sending"
+             :placeholder="$t('home.contact.message')" :disabled="sending"
              @blur="validate('message')" @focus="clearValidation('message')" />
 
-      <input type="submit" :value="$t('contact.submit')" :disabled="sending || !validForm" />
+      <input type="submit" :value="$t('home.contact.submit')" :disabled="sending || !validForm" />
     </form>
 
     <Modal v-model="modal.show" class="contact-modal">
-      <p class="error" v-if="modal.error">{{ $t('contact.error') }}</p>
-      <p v-else>{{ $t('contact.success') }}</p>
+      <p class="error" v-if="modal.error">{{ $t('home.contact.error') }}</p>
+      <p v-else>{{ $t('home.contact.success') }}</p>
     </Modal>
   </div>
 </template>
 
 <script>
-import firebase from 'firebase';
+import firebase from '@/utils/firebase';
 import Modal from '@/components/Modal.vue';
 
 export default {

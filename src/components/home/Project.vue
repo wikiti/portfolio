@@ -2,7 +2,7 @@
   <div class="project">
     <div class="project-logo">
       <a class="clear-link more-info" href="#modal" @click="openModal">
-        <img :src="logo" :alt="$t('projects.logo')" />
+        <img :src="logo" :alt="$t('home.projects.logo')" />
       </a>
     </div>
 
@@ -13,7 +13,7 @@
           {{ $d(project.date, "short") | capitalize }}
         </div>
         <div class="type">
-          {{ $t(`projects.types.${project.type}`) }}
+          {{ $t(`home.projects.types.${project.type}`) }}
         </div>
       </div>
 
@@ -21,10 +21,10 @@
 
       <div class="links">
         <a v-if="project.resource" class="resource" target="_blank" :href="project.resource.url"
-          >{{ $t(`projects.resources.${project.resource.type}`) }}</a>
+          >{{ $t(`home.projects.resources.${project.resource.type}`) }}</a>
 
         <a class="more-info" href="#modal" @click="openModal"
-          >{{$t("projects.info")}}</a>
+          >{{$t('home.projects.info')}}</a>
       </div>
     </div>
 
@@ -36,7 +36,7 @@
       <div class="attachment">
         <a class="clear-link image" target="_blank" v-if="project.attachment.type === 'image'"
             :href="project.attachment.type">
-          <img :alt="$t('projects.logo')" :src="project.attachment.url" />
+          <img :alt="$t('home.projects.logo')" :src="project.attachment.url" />
         </a>
 
         <div class="youtube" v-if="project.attachment.type === 'youtube'">
@@ -51,7 +51,7 @@
 
       <div class="links">
         <a v-if="project.resource" class="resource" target="_blank" :href="project.resource.url"
-          >{{ $t(`projects.resources.${project.resource.type}`) }}</a>
+          >{{ $t(`home.projects.resources.${project.resource.type}`) }}</a>
       </div>
     </Modal>
   </div>

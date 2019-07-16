@@ -3,15 +3,17 @@
     <Navbar />
 
     <!-- TODO: Loading spinner -->
-    <router-view />
+    <router-view/>
   </div>
 </template>
 
 <script>
+import store from '@/store';
 import Navbar from '@/components/Navbar.vue';
 
 export default {
   name: 'App',
+  store,
   components: { Navbar },
   mounted() {
     this.updateHtmlLang();

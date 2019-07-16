@@ -1,13 +1,13 @@
 <template>
   <footer class="block">
     <div class="location block-third">
-      <h3>{{ $t('footer.location.title') }}</h3>
-      <address>{{ $t('footer.location.body') }}</address>
+      <h3>{{ $t('home.footer.location.title') }}</h3>
+      <address>{{ $t('home.footer.location.body') }}</address>
 
     </div>
 
     <div class="social block-third">
-      <h3>{{ $t('footer.social.title') }}</h3>
+      <h3>{{ $t('home.footer.social.title') }}</h3>
 
       <ul>
         <li v-for="social in socialLinks" :key="social.id">
@@ -19,15 +19,17 @@
     </div>
 
     <div class="contact block-third">
-      <h3>{{ $t('footer.contact.title') }}</h3>
+      <h3>{{ $t('home.footer.contact.title') }}</h3>
       <dl>
-        <dt>{{ $t('footer.contact.email.label') }}</dt>
+        <dt>{{ $t('home.footer.contact.email.label') }}</dt>
         <dd>
-          <a :href="`mailto:${$t('footer.contact.email.value')}`"
-            >{{ $t('footer.contact.email.value') }}</a>
+          <a :href="`mailto:${$t('home.footer.contact.email.value')}`"
+            >{{ $t('home.footer.contact.email.value') }}</a>
         </dd>
       </dl>
     </div>
+
+    <div v-html="$t('home.footer.tools')" class="tools" />
   </footer>
 </template>
 
@@ -88,5 +90,13 @@ dl {
   dd {
     margin-left: $small-spacing;
   }
+}
+
+.tools {
+  &, ::v-deep a {
+    @include small-font;
+  }
+
+  margin-top: $large-spacing;
 }
 </style>

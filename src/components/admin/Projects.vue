@@ -15,7 +15,7 @@
           <select required v-model="project.type">
             <option disabled value="">{{ $t('admin.projects.select_type') }}</option>
             <option v-for="type in projectTypes" :key="type" :value="type">
-              {{ $t(`projects.types.${type}`) }}
+              {{ $t(`home.projects.types.${type}`) }}
             </option>
           </select>
         </fieldset>
@@ -49,7 +49,7 @@
           <select required v-model="project.resource.type">
             <option disabled value="">{{ $t('admin.projects.select_resource_type') }}</option>
             <option v-for="type in projectResourceTypes" :key="type" :value="type">
-              {{ $t(`projects.resources.${type}`) }}
+              {{ $t(`home.projects.resources.${type}`) }}
             </option>
           </select>
 
@@ -61,7 +61,7 @@
                   :disabled="project.attachment.state == 'process'">
             <option disabled value="">{{ $t('admin.projects.select_attachment_type') }}</option>
             <option v-for="type in projectAttachmentTypes" :key="type" :value="type">
-              {{ $t(`projects.attachments.${type}`) }}
+              {{ $t(`home.projects.attachments.${type}`) }}
             </option>
           </select>
 

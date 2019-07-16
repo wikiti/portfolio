@@ -1,28 +1,28 @@
 <template>
-  <div class="signin">
-    <h2>{{ $t('signin.title') }}</h2>
+  <div class="login">
+    <h2>{{ $t('login.title') }}</h2>
 
     <form @submit="checkForm">
-      <input name="email" type="email" v-model="email" :placeholder="$t('signin.email')"
+      <input name="email" type="email" v-model="email" :placeholder="$t('login.email')"
              :disabled="sending" />
 
-      <input name="password" type="password" v-model="password" :placeholder="$t('signin.password')"
+      <input name="password" type="password" v-model="password" :placeholder="$t('login.password')"
              :disabled="sending" />
 
-      <input type="submit" :value="$t('signin.submit')" :disabled="sending" />
+      <input type="submit" :value="$t('login.submit')" :disabled="sending" />
     </form>
 
     <div class="error" v-if="error">{{ error }}</div>
 
-    <router-link to="/signup">{{ $t('signin.signup') }}</router-link>
+    <router-link to="/signup">{{ $t('login.signup') }}</router-link>
   </div>
 </template>
 
 <script>
-import firebase from '@/utils/firebase';
+import auth from '@/utils/auth';
 
 export default {
-  name: 'signup',
+  name: 'login',
   data() {
     return {
       email: '',
@@ -37,15 +37,13 @@ export default {
       this.sending = true;
       this.error = null;
 
-      firebase.auth().signInWithEmailAndPassword(this.email, this.password)
+      auth.login(this.email, this.password)
         .then(() => {
-          console.log('logged in');
-          // TODO: Redirect to admin
+          this.$router.replace('/');
         })
         .catch((error) => {
           this.sending = false;
           this.error = error.message;
-          console.error(error);
         });
 
       return false;

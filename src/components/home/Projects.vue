@@ -1,16 +1,16 @@
 <template>
   <div class="projects">
-    <h2>{{ $t("projects.title") }}</h2>
+    <h2>{{ $t('home.projects.title') }}</h2>
 
     <div v-if="projects" class="project-list">
       <Project v-for="project in visibleProjects" :project="project" :key="project.id" />
 
       <a v-if="visibleProjects.length < projects.length" class="more" @click="showMore"
-        >{{ $t("projects.more") }}</a>
+        >{{ $t('home.projects.more') }}</a>
     </div>
 
     <div v-else class="loading">
-      {{ $t("projects.loading") }}
+      {{ $t('home.projects.loading') }}
     </div>
   </div>
 </template>

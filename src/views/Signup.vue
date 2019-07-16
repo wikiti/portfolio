@@ -14,12 +14,12 @@
 
     <div class="error" v-if="error">{{ error }}</div>
 
-    <router-link to="/signin">{{ $t('signup.signin') }}</router-link>
+    <router-link to="/login">{{ $t('signup.login') }}</router-link>
   </div>
 </template>
 
 <script>
-import firebase from '@/utils/firebase';
+import auth from '@/utils/auth';
 
 export default {
   name: 'signup',
@@ -37,15 +37,13 @@ export default {
       this.sending = true;
       this.error = null;
 
-      firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+      auth.signup(this.email, this.password)
         .then(() => {
-          console.log('sign up');
-          // TODO: Redirect to admin
+          this.$router.replace('/');
         })
         .catch((error) => {
           this.sending = false;
           this.error = error.message;
-          console.error(error);
         });
 
       return false;

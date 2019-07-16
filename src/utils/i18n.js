@@ -48,66 +48,74 @@ const messages = {
         }
       }
     },
-    title: 'Daniel Herzog Cruz',
-    subtitle: 'Software Engineer - Full stack developer - Game developer',
-    summary: {
-      title: 'Summary',
-      left:
-        'Enthusiastic, autonomous and responsible. A software engineer whose passion is to be able to work on projects that go beyond his horizons, allowing him to gain experience in the field of computer engineering and programming.',
-      right:
-        "Whether it's about programming business applications or personal projects, the goal will always be to try to create the product with the highest quality, providing a comfortable experience to the end-user.",
-      download: 'Download Curriculum Vitae'
-    },
-    projects: {
-      title: 'Projects',
-      more: 'Show more',
-      info: 'More info',
-      loading: 'Loading projects',
-      logo: 'Logo',
-      attachment: 'Attachment',
-      attachments: {
-        youtube: 'YouTube',
-        image: 'Image'
+    home: {
+      header: {
+        title: 'Daniel Herzog Cruz',
+        subtitle: 'Software Engineer - Full stack developer - Game developer'
       },
-      types: {
-        website: 'Website',
-        videogame_web: 'Web videogame',
-        videogame_native: 'Native videogame',
-        app_web: 'Web app',
-        app_native: 'Native application'
+      summary: {
+        title: 'Summary',
+        left:
+          'Enthusiastic, autonomous and responsible. A software engineer whose passion is to be able to work on projects that go beyond his horizons, allowing him to gain experience in the field of computer engineering and programming.',
+        right:
+          "Whether it's about programming business applications or personal projects, the goal will always be to try to create the product with the highest quality, providing a comfortable experience to the end-user.",
+        download: 'Download Curriculum Vitae'
       },
-      resources: {
-        website: 'Website',
-        play_store: 'PlayStore',
-        repository: 'Repository'
-      }
-    },
-    contact: {
-      title: 'Contact',
-      name: 'Name (*)',
-      contact: 'Email or phone (*)',
-      message: 'Message (*)',
-      submit: 'Submit',
-      success: 'Your message has been sent successfully.',
-      error: 'There was an error when sending your message. Please try again later.'
-    },
-    footer: {
-      location: {
-        title: 'Address',
-        body: '38190 Santa Cruz de Tenerife'
-      },
-      social: {
-        title: 'Social'
+      projects: {
+        title: 'Projects',
+        more: 'Show more',
+        info: 'More info',
+        loading: 'Loading projects',
+        logo: 'Logo',
+        attachment: 'Attachment',
+        attachments: {
+          youtube: 'YouTube',
+          image: 'Image'
+        },
+        types: {
+          website: 'Website',
+          videogame_web: 'Web videogame',
+          videogame_native: 'Native videogame',
+          app_web: 'Web app',
+          app_native: 'Native application'
+        },
+        resources: {
+          website: 'Website',
+          play_store: 'PlayStore',
+          repository: 'Repository'
+        }
       },
       contact: {
         title: 'Contact',
-        email: {
-          label: 'Email:',
-          value: 'info@danielherzog.es'
-        }
+        name: 'Name (*)',
+        contact: 'Email or phone (*)',
+        message: 'Message (*)',
+        submit: 'Submit',
+        success: 'Your message has been sent successfully.',
+        error: 'There was an error when sending your message. Please try again later.'
+      },
+      footer: {
+        location: {
+          title: 'Address',
+          body: '38190 Santa Cruz de Tenerife'
+        },
+        social: {
+          title: 'Social'
+        },
+        contact: {
+          title: 'Contact',
+          email: {
+            label: 'Email:',
+            value: 'info@danielherzog.es'
+          }
+        },
+        tools: `
+          Made with &#9829; with <a href="https://vuejs.org/" target="_blank">Vue.js</a> and
+          <a href="https://firebase.google.com/" target="_blank">Firebase</a>
+        `
       }
     },
-    signin: {
+    login: {
       title: 'Sign in',
       email: 'Email',
       password: 'Password',
@@ -151,67 +159,75 @@ const messages = {
         }
       }
     },
-    title: 'Daniel Herzog Cruz',
-    subtitle:
-      'Ingeniero informático - Desarrollador web - Programador de videojuegos',
-    summary: {
-      title: 'Resumen',
-      left:
-        'Entusiasta, autónomo y responsable. Un ingeniero informático cuya pasión es poder trabajar en proyectos que vayan más allá de sus horizontes, permitiendo así ganar experiencia en el campo de la ingeniería informática y la programación.',
-      right:
-        'Ya sea programando aplicaciones comerciales o proyectos personales, el objetivo será siempre tratar de crear el producto con la mayor calidad posible, proporcionando al usuario final una experiencia cómoda.',
-      download: 'Descargar Currículum Vitae'
-    },
-    projects: {
-      title: 'Proyectos',
-      more: 'Mostrar más',
-      info: 'Más info.',
-      loading: 'Cargando proyectos',
-      logo: 'Logotipo',
-      attachment: 'Adjunto',
-      attachments: {
-        youtube: 'YouTube',
-        image: 'Imagen'
+    home: {
+      header: {
+        title: 'Daniel Herzog Cruz',
+        subtitle:
+          'Ingeniero informático - Desarrollador web - Programador de videojuegos'
       },
-      types: {
-        website: 'Página web',
-        videogame_web: 'Videojuego web',
-        videogame_native: 'Videojuego nativo',
-        app_web: 'Aplicación web',
-        app_native: 'Aplicación nativa'
+      summary: {
+        title: 'Resumen',
+        left:
+          'Entusiasta, autónomo y responsable. Un ingeniero informático cuya pasión es poder trabajar en proyectos que vayan más allá de sus horizontes, permitiendo así ganar experiencia en el campo de la ingeniería informática y la programación.',
+        right:
+          'Ya sea programando aplicaciones comerciales o proyectos personales, el objetivo será siempre tratar de crear el producto con la mayor calidad posible, proporcionando al usuario final una experiencia cómoda.',
+        download: 'Descargar Currículum Vitae'
       },
-      resources: {
-        website: 'Sitio web',
-        play_store: 'PlayStore',
-        repository: 'Repositorio'
-      }
-    },
-    contact: {
-      title: 'Contacto',
-      name: 'Nombre (*)',
-      contact: 'Correo o teléfono (*)',
-      message: 'Mensaje (*)',
-      submit: 'Enviar',
-      success: 'El mensaje se ha enviado correctamente.',
-      error: 'Ha ocurrido un error al enviar el mensaje. Por favor, inténtelo de nuevo más tarde.'
-    },
-    footer: {
-      location: {
-        title: 'Localidad',
-        body: '38190 Santa Cruz de Tenerife'
-      },
-      social: {
-        title: 'Redes sociales'
+      projects: {
+        title: 'Proyectos',
+        more: 'Mostrar más',
+        info: 'Más info.',
+        loading: 'Cargando proyectos',
+        logo: 'Logotipo',
+        attachment: 'Adjunto',
+        attachments: {
+          youtube: 'YouTube',
+          image: 'Imagen'
+        },
+        types: {
+          website: 'Página web',
+          videogame_web: 'Videojuego web',
+          videogame_native: 'Videojuego nativo',
+          app_web: 'Aplicación web',
+          app_native: 'Aplicación nativa'
+        },
+        resources: {
+          website: 'Sitio web',
+          play_store: 'PlayStore',
+          repository: 'Repositorio'
+        }
       },
       contact: {
         title: 'Contacto',
-        email: {
-          label: 'Correo:',
-          value: 'info@danielherzog.es'
-        }
+        name: 'Nombre (*)',
+        contact: 'Correo o teléfono (*)',
+        message: 'Mensaje (*)',
+        submit: 'Enviar',
+        success: 'El mensaje se ha enviado correctamente.',
+        error: 'Ha ocurrido un error al enviar el mensaje. Por favor, inténtelo de nuevo más tarde.'
+      },
+      footer: {
+        location: {
+          title: 'Localidad',
+          body: '38190 Santa Cruz de Tenerife'
+        },
+        social: {
+          title: 'Redes sociales'
+        },
+        contact: {
+          title: 'Contacto',
+          email: {
+            label: 'Correo:',
+            value: 'info@danielherzog.es'
+          }
+        },
+        tools: `
+          Hecho con &#9829; en <a href="https://vuejs.org/" target="_blank">Vue.js</a> y
+          <a href="https://firebase.google.com/" target="_blank">Firebase</a>
+        `
       }
     },
-    signin: {
+    login: {
       title: 'Inicio de sesión',
       email: 'Correo',
       password: 'Contraseña',
@@ -223,7 +239,7 @@ const messages = {
       email: 'Correo',
       password: 'Contraseña',
       submit: 'Registrarse',
-      signin: 'Ya tengo un usuario'
+      login: 'Ya tengo un usuario'
     }
   }
 };

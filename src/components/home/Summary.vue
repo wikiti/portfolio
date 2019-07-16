@@ -1,14 +1,14 @@
 <template>
   <div class="summary">
-    <h2>{{ $t("summary.title") }}</h2>
+    <h2>{{ $t('home.summary.title') }}</h2>
 
     <div class="block">
-      <p class="block-half">{{ $t("summary.left") }}</p>
-      <p class="block-half">{{ $t("summary.right") }}</p>
+      <p class="block-half">{{ $t('home.summary.left') }}</p>
+      <p class="block-half">{{ $t("home.summary.right") }}</p>
     </div>
 
     <a class="button download" target="_blank" :href="downloadLink" v-if="downloadLink">
-      {{ $t("summary.download") }}
+      {{ $t('home.summary.download') }}
     </a>
   </div>
 </template>

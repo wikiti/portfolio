@@ -58,6 +58,10 @@
   font-size: $font-size * $scale;
 }
 
+@mixin small-font {
+  @include font-scale(0.85);
+}
+
 @mixin heading($scale) {
   @include font-scale($scale);
   @extend %bold;
