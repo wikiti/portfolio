@@ -80,6 +80,11 @@ export default {
 
       const contactForm = firebase.functions().httpsCallable('contactForm');
       contactForm({ name: this.name, contact: this.contact, message: this.message })
+        .then(() => {
+          this.name = '';
+          this.contact = '';
+          this.message = '';
+        })
         .catch(() => {
           this.modal.error = true;
         })

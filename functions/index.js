@@ -11,11 +11,13 @@ module.exports = {
   contactForm: functions.https.onRequest((request, response) => {
     return cors(request, response, () => {
       users.list().then((users) => {
-        // TODO: Update subject and body!
         const emails = users.map(user => user.email).join(', ');
         const subject = 'New message from portafolio';
         const body = `
-          Yo mate! Look at <strong>this</strong>!
+          <p><strong>Name:</strong> ${request.body.data.name}</p>
+          <p><strong>Contact:</strong> ${request.body.data.contact}</p>
+          <p><strong>Message:</strong></p>
+          <pre>${request.body.data.message}</pre>
         `;
 
         return mail.send(emails, subject, body);
