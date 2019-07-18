@@ -20,6 +20,10 @@ const dateTimeFormats = {
 
 const messages = {
   en: {
+    languages: {
+      es: 'Spanish',
+      en: 'English'
+    },
     navbar: {
       home: 'Home',
       admin: 'Admin',
@@ -34,6 +38,12 @@ const messages = {
       },
       projects: {
         title: 'Projects',
+        name: 'Name',
+        priority: 'Priority',
+        short: 'Short description',
+        description: 'Long description',
+        url: 'Url',
+        logo: 'Logo',
         select_type: 'Select a project type',
         select_resource_type: 'Select a resource type',
         select_attachment_type: 'Select an attachment type',
@@ -46,6 +56,16 @@ const messages = {
           ok: 'Project was successfully saved',
           error: 'Something went wrong while updating the project'
         }
+      },
+      social: {
+        title: 'Social',
+        url: 'Url',
+        icon: 'Icon',
+        priority: 'Priority',
+        error: 'Something went wrong while updating the resource',
+        save: 'Save',
+        delete: 'Delete',
+        new: 'New'
       }
     },
     home: {
@@ -131,6 +151,10 @@ const messages = {
     }
   },
   es: {
+    languages: {
+      es: 'Español',
+      en: 'Inglés'
+    },
     navbar: {
       home: 'Inicio',
       admin: 'Admin',
@@ -145,6 +169,12 @@ const messages = {
       },
       projects: {
         title: 'Proyectos',
+        name: 'Nombre',
+        priority: 'Prioridad',
+        short: 'Descripción corta',
+        description: 'Descripción larga',
+        url: 'Url',
+        logo: 'Logo',
         select_type: 'Seleccione un tipo de proyecto',
         select_resource_type: 'Seleccione un tipo de recurso',
         select_attachment_type: 'Seleccione un tipo de adjunto',
@@ -157,6 +187,16 @@ const messages = {
           ok: 'El proyecto se guardó correctamente',
           error: 'Ocurrió un error al actualizar el proyecto'
         }
+      },
+      social: {
+        title: 'Social',
+        error: 'Ocurrió un error al actualizar el recurso',
+        url: 'Url',
+        icon: 'Icono',
+        priority: 'Prioridad',
+        save: 'Guardar',
+        delete: 'Borrar',
+        new: 'Nuevo'
       }
     },
     home: {

@@ -2,10 +2,9 @@
   <div class="admin-curriculums">
     <h2>{{ $t('admin.curriculum.title') }}</h2>
 
-    <!-- TODO: Placeholders and labels -->
     <div v-for="curriculum in curriculums" :key="curriculum.id">
       <fieldset class="file">
-        <label>{{curriculum.id}}</label>
+        <label>{{ $t(`languages.${curriculum.id}`) }}</label>
         <input type="text" readonly required v-model="curriculum.url"/>
         <input type="file" accept=".pdf"
                 @change="uploadFile(curriculum, $event)"
@@ -54,7 +53,7 @@ export default {
       }
 
       curriculum.state = 'process';
-      const uploadTask = firebase.storage().ref(uuid()).put(userFile);
+      const uploadTask = firebase.storage().ref(`curriculums/${uuid()}`).put(userFile);
       const previousUrl = curriculum.url;
 
       uploadTask.then(snapshot => snapshot.ref.getDownloadURL())

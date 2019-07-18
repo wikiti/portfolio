@@ -2,7 +2,6 @@
   <div id="app">
     <Navbar />
 
-    <!-- TODO: Loading spinner -->
     <router-view/>
   </div>
 </template>

@@ -34,6 +34,7 @@
 </template>
 
 <script>
+import _ from 'lodash';
 import Icon from 'vue-awesome/components/Icon.vue';
 import social from '@/resources/social';
 
@@ -45,7 +46,7 @@ export default {
   },
   mounted() {
     social.get().then((data) => {
-      this.socialLinks = data;
+      this.socialLinks = _(data).orderBy(['priority', 'desc']).reverse().value();
     });
   }
 };

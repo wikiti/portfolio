@@ -1,5 +1,12 @@
 # portafolio
 
+## TODO
+
+- Create npm scripts for serving and deploying
+- Run `npm audit fix`
+- Add production content (projects, images, social)
+- Update README.md with instructions and samples
+
 ## Project setup
 ```
 yarn install

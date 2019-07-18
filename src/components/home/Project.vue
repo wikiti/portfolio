@@ -2,7 +2,7 @@
   <div class="project">
     <div class="project-logo">
       <a class="clear-link more-info" href="#modal" @click="openModal">
-        <img :src="logo" :alt="$t('home.projects.logo')" />
+        <img :src="project.logo" :alt="$t('home.projects.logo')" />
       </a>
     </div>
 
@@ -35,7 +35,7 @@
 
       <div class="attachment">
         <a class="clear-link image" target="_blank" v-if="project.attachment.type === 'image'"
-            :href="project.attachment.type">
+            :href="project.attachment.url">
           <img :alt="$t('home.projects.logo')" :src="project.attachment.url" />
         </a>
 
@@ -43,8 +43,6 @@
           <iframe width="560" height="315" :src="project.attachment.url"
                   frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen />
         </div>
-
-        <!-- TODO: Other resource types -->
       </div>
 
       <p class="description" v-html="project.description[$i18n.locale]" />
@@ -65,14 +63,7 @@ export default {
   props: ['project'],
   components: { Modal },
   data() {
-    return {
-      showModal: false,
-      logo: null
-    };
-  },
-  mounted() {
-    // this.logo = `images/${this.project.id}.png`;
-    this.logo = 'https://loremflickr.com/400/400';
+    return { showModal: false };
   },
   methods: {
     openModal(event) {

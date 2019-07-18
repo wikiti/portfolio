@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import _ from 'lodash';
 import projects from '@/resources/projects';
 import Project from '@/components/home/Project.vue';
 
@@ -30,7 +31,7 @@ export default {
   },
   mounted() {
     projects.get().then((data) => {
-      this.projects = data.sort((a, b) => (b.priority || 0) - (a.priority || 0));
+      this.projects = _(data).orderBy(['priority', 'desc']).reverse().value();
     });
   },
   computed: {

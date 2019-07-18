@@ -181,6 +181,21 @@ button, a.button, input[type=submit]  {
       text-decoration: underline;
     }
   }
+
+  & + & {
+    margin-left: $small-spacing;
+  }
+
+  &.danger {
+    color: $red;
+    border-color: $red;
+
+    &:not([disabled]) {
+      &:hover, &:focus {
+        background-color: $red;
+      }
+    }
+  }
 }
 
 // Notifications and errors
@@ -200,9 +215,15 @@ img, iframe {
 // Forms
 // -------------------------------
 
-input[type=text], input[type=password], input[type=email], input[type=number], textarea {
+label {
+  font-weight: bold;
+}
+
+input[type=text], input[type=password], input[type=email], input[type=number], textarea, select {
   @extend .block;
   @extend %bordered;
+
+  background-color: $white;
 
   margin-bottom: $medium-spacing;
   padding: $no-spacing $no-spacing $small-spacing $medium-spacing;

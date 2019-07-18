@@ -17,7 +17,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 import Header from '@/components/home/Header.vue';
 import Summary from '@/components/home/Summary.vue';
 import Projects from '@/components/home/Projects.vue';

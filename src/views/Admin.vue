@@ -4,16 +4,17 @@
 
     <Curriculums />
     <Projects />
-    <!-- TODO: Social form -->
+    <Social />
   </div>
 </template>
 
 <script>
 import Projects from '@/components/admin/Projects.vue';
 import Curriculums from '@/components/admin/Curriculums.vue';
+import Social from '@/components/admin/Social.vue';
 
 export default {
   name: 'admin',
-  components: { Projects, Curriculums }
+  components: { Projects, Curriculums, Social }
 };
 </script>
