@@ -18,14 +18,14 @@ module.exports = {
       // Set custom user claims on this newly created user.
       return admin.auth().setCustomUserClaims(user.uid, { admin: true });
     })
-    .then(() => admin.database().ref(`metadata/${user.uid}`).set({ refreshTime: Date.now() }))
-    .catch((err) => {
-      if (!err instanceof BreakSignal) {
-        throw err;
-      }
-    });
+      .then(() => admin.database().ref(`metadata/${user.uid}`).set({ refreshTime: Date.now() }))
+      .catch((err) => {
+        if (!(err instanceof BreakSignal)) {
+          throw err;
+        }
+      });
   },
   unRegisterAdmin(user) {
     return admin.database().ref(`metadata/${user.uid}`).remove();
   }
-}
+};

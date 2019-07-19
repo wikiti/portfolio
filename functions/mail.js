@@ -12,7 +12,7 @@ const transporter = nodemailer.createTransport({
 module.exports = {
   send(to, subject, body) {
     const mailOptions = {
-      from: `Portafolio Web <${functions.config().gmail.user}>`,
+      from: `Portfolio Web <${functions.config().gmail.user}>`,
       to: to,
       subject: subject,
       html: body
@@ -21,10 +21,10 @@ module.exports = {
     return new Promise((resolve, reject) => {
       transporter.sendMail(mailOptions, (err, info) => {
         if (err) {
-          reject(err)
+          reject(err);
         }
         else {
-          resolve(info)
+          resolve(info);
         }
       });
     });

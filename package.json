@@ -1,15 +1,16 @@
 {
-  "name": "portafolio",
+  "name": "portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "deploy": "vue-cli-service build && firebase deploy"
   },
   "dependencies": {
     "firebase": "^5.8.4",
-    "lodash": "^4.17.11",
+    "lodash": "^4.17.15",
     "mailgun-js": "^0.22.0",
     "nodemailer": "^6.2.1",
     "uuid": "^3.3.2",
@@ -21,7 +22,7 @@
     "vuex": "^3.1.1"
   },
   "devDependencies": {
-    "@google-cloud/functions-emulator": "^1.0.0-beta.5",
+    "@google-cloud/functions-emulator": "^1.0.0-beta.6",
     "@vue/cli-plugin-babel": "^3.4.0",
     "@vue/cli-plugin-eslint": "^3.4.0",
     "@vue/cli-service": "^3.4.0",

@@ -10,9 +10,9 @@ admin.initializeApp();
 module.exports = {
   contactForm: functions.https.onRequest((request, response) => {
     return cors(request, response, () => {
-      users.list().then((users) => {
-        const emails = users.map(user => user.email).join(', ');
-        const subject = 'New message from portafolio';
+      users.list().then((userList) => {
+        const emails = userList.map(user => user.email).join(', ');
+        const subject = 'New message from portfolio';
         const body = `
           <p><strong>Name:</strong> ${request.body.data.name}</p>
           <p><strong>Contact:</strong> ${request.body.data.contact}</p>
@@ -22,16 +22,16 @@ module.exports = {
 
         return mail.send(emails, subject, body);
       })
-      .then((result) => {
-        response.status(200).send({ data: { status: 'ok' } });
-      })
-      .catch((error) => {
-        response.status(400).send({ data: { status: 'error', error: error } });
-      });
+        .then(() => {
+          response.status(200).send({ data: { status: 'ok' } });
+        })
+        .catch((error) => {
+          response.status(400).send({ data: { status: 'error', error: error } });
+        });
     });
   }),
 
-  userCreated: functions.auth.user().onCreate((user) => users.tryRegisterFirstAdmin(user)),
+  userCreated: functions.auth.user().onCreate(user => users.tryRegisterFirstAdmin(user)),
 
-  userRemoved: functions.auth.user().onDelete((user) => users.unRegisterAdmin(user))
+  userRemoved: functions.auth.user().onDelete(user => users.unRegisterAdmin(user))
 };
