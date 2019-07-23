@@ -23,6 +23,11 @@ export default {
   checkAdminUser() {
     return new Promise((resolve, reject) => {
       firebase.auth().onAuthStateChanged((user) => {
+        if (!user) {
+          resolve(null);
+          return;
+        }
+
         user.getIdTokenResult(true)
           .then(token => resolve(token.claims.admin ? user : null))
           .catch(reject);

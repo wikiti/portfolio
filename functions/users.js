@@ -18,7 +18,7 @@ module.exports = {
       // Set custom user claims on this newly created user.
       return admin.auth().setCustomUserClaims(user.uid, { admin: true });
     })
-      .then(() => admin.database().ref(`metadata/${user.uid}`).set({ refreshTime: Date.now() }))
+      .then(() => admin.database().ref(`metadata/${user.uid}`).set(true))
       .catch((err) => {
         if (!(err instanceof BreakSignal)) {
           throw err;

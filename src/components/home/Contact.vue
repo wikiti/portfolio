@@ -10,7 +10,7 @@
              :placeholder="$t('home.contact.contact')" :disabled="sending"
              @blur="validate('contact')" @focus="clearValidation('contact')" />
 
-      <textarea rows="3" name="message" v-model="message" :class="{ error: errors.message }"
+      <textarea name="message" v-model="message" :class="{ error: errors.message }"
              :placeholder="$t('home.contact.message')" :disabled="sending"
              @blur="validate('message')" @focus="clearValidation('message')" />
 

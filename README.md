@@ -29,28 +29,51 @@ Finally, update the `.env` file with the desired ids and keys.
 | VUE_APP_FIREBASE_PROJECT_ID   | Firebase project id                 |
 | VUE_APP_THEME_COLOR           | Theme color for mobile browsers     |
 
+You may now start a development server:
+
+```sh
+npm run serve
+```
+
+Users can be created under the `/signup` path. The first created user will be the administrator.
+
 ## Project estructure
 
-TODO
+Here's the directory tree for this project:
+
+```
+- dist            # Compiled frontend files
+- functions       # Firebase functions (backend) directory
+- public          # Public assets
+- src             # Frontend source files
+  |- assets       # Assets (stylesheets)
+  |- components   # Reusable Vue components
+  |- resources    # HTTP resources (Firebase realtime database)
+  |- store        # Vuex store
+  |- utils        # Utils and other classes
+  |- views        # Vue-router views
+  |- App.vue      # Main Vue application
+  |- main.js      # Entry point
+```
 
 ## Development
 
 To serve the Vue application locally, use:
 
 ```sh
-npm run serve 
+npm run serve
 ```
 
 To build the Vue application on production mode, use:
 
 ```sh
-npm run build 
+npm run build
 ```
 
 To fix linting errors, use:
 
 ```sh
-npm run lint 
+npm run lint
 ```
 
 ## Deploy
@@ -72,3 +95,9 @@ node_modules/.bin/firebase deploy --only-functions
 - [My portfolio!](https://danielherzog.es)
 - [Vue.js](https://vuejs.org/)
 - [Firebase](https://firebase.google.com)
+
+## TODO
+
+- Add production data
+- Deploy this to GitHub
+- Configure domains and SSL

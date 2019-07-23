@@ -11,11 +11,9 @@
   padding: $no-spacing;
   vertical-align: top;
 
-  font-size: 1rem;
+  font-size: $font-size;
   font-family: 'Open Sans', sans-serif;
-  font-weight: inherit;
-  font-style: inherit;
-  line-height: 1.5rem;
+  line-height: $font-size * 1.5;
 
   color: inherit;
   text-decoration: none;
@@ -54,6 +52,13 @@
   margin-right: auto;
 }
 
+%paragraph {
+  @extend %justified;
+
+  margin-bottom: $medium-spacing;
+  text-indent: $large-spacing;
+}
+
 @mixin font-scale($scale) {
   font-size: $font-size * $scale;
 }
@@ -76,6 +81,12 @@
 // Global
 // -------------------------------
 
+// Fix main content "dancing" when openning modal dialogs
+// https://css-tricks.com/elegant-fix-jumping-scrollbar-issue/
+html {
+  margin-left: calc(100vw - 100%);
+}
+
 body {
   @extend %centered-block;
 
@@ -93,10 +104,7 @@ body {
 }
 
 p {
-  @extend %justified;
-
-  margin-bottom: $medium-spacing;
-  text-indent: $large-spacing;
+  @extend %paragraph;
 }
 
 ::selection {
@@ -219,7 +227,9 @@ label {
   font-weight: bold;
 }
 
-input[type=text], input[type=password], input[type=email], input[type=number], textarea, select {
+input[type=text], input[type=password], input[type=email], input[type=number], input[type=date],
+textarea, select {
+
   @extend .block;
   @extend %bordered;
 
@@ -248,6 +258,15 @@ input[type=text], input[type=password], input[type=email], input[type=number], t
   &:disabled {
     background-color: $light-gray;
   }
+}
+
+textarea {
+  height: $textarea-height;
+}
+
+// Remove date input arrows
+input[type=date]::-webkit-inner-spin-button, input[type=date]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
 }
 
 fieldset {

@@ -6,6 +6,10 @@ const projects = {
       .then(snapshot => Object.values(snapshot.val() || {}));
   },
   upsert(id, properties) {
+    if (properties.date && properties.date instanceof Date) {
+      properties.date = properties.date.toDateString();
+    }
+
     return firebase.database().ref(`/projects/${id}`).set(properties);
   },
   delete(id) {

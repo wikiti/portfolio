@@ -10,8 +10,18 @@
             <input type="text" required v-model="project.name"
                    :placeholder="$t('admin.projects.name')">
 
-            <input type="number" min="0" v-model="project.priority"
+            <input type="number" min="0" v-model.number="project.priority"
                    :placeholder="$t('admin.projects.priority')">
+
+            <div class="block">
+              <div class="block-half">
+                <input type="date" required v-model="project.date">
+              </div>
+
+              <div class="block-half">
+                <input type="date" v-model="project.finishedDate">
+              </div>
+            </div>
 
             <select required v-model="project.type">
               <option disabled :value="null">{{ $t('admin.projects.select_type') }}</option>
@@ -82,7 +92,7 @@
               <input type="text" readonly required v-if="project.attachment.url"
                      v-model="project.attachment.url" />
               <input type="file" accept=".png,.jpg,.jpeg,.gif"
-                     @change="uploadFile(project, $event)"
+                     @change="uploadAttachmentFile(project, $event)"
                      :placeholder="$t('admin.projects.url')"
                      :disabled="project.attachment.state == 'process'" />
 
@@ -128,9 +138,16 @@ export default {
   data() {
     return {
       projects: null,
-      projectTypes: ['videogame_web', 'videogame_native', 'website', 'app_web', 'app_native'],
+      projectTypes: [
+        'videogame_web',
+        'videogame_native',
+        'website',
+        'app_web',
+        'app_native',
+        'open_source'
+      ],
       projectResourceTypes: ['website', 'play_store', 'repository'],
-      projectAttachmentTypes: ['youtube', 'image']
+      projectAttachmentTypes: ['youtube', 'image', 'none']
     };
   },
   mounted() {
@@ -145,6 +162,9 @@ export default {
   },
   methods: {
     addEmptyProject() {
+      window.projects = this.projects;
+      window._ = _;
+
       this.projects.push({
         attachment: { type: null, url: null },
         description: this.buildLocalesObject(),
@@ -152,7 +172,8 @@ export default {
         logo: null,
         name: null,
         new: true,
-        priority: null,
+        date: new Date(),
+        priority: _(this.projects).map('priority').max() + 1,
         resource: { type: null, url: null },
         short: this.buildLocalesObject(),
         type: null

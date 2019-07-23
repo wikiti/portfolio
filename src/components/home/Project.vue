@@ -10,7 +10,7 @@
       <div class="project-header">
         <h3>{{ project.name }}</h3>
         <div class="date">
-          {{ $d(project.date, "short") | capitalize }}
+          {{ projectDates }}
         </div>
         <div class="type">
           {{ $t(`home.projects.types.${project.type}`) }}
@@ -45,7 +45,7 @@
         </div>
       </div>
 
-      <p class="description" v-html="project.description[$i18n.locale]" />
+      <div class="description" v-html="project.description[$i18n.locale]" />
 
       <div class="links">
         <a v-if="project.resource" class="resource" target="_blank" :href="project.resource.url"
@@ -56,6 +56,7 @@
 </template>
 
 <script>
+import _ from 'lodash';
 import Modal from '@/components/Modal.vue';
 
 export default {
@@ -65,13 +66,29 @@ export default {
   data() {
     return { showModal: false };
   },
+  computed: {
+    projectDates() {
+      const dates = [this.prettifyDate(this.project.date)];
+
+      if (this.project.finishedDate) {
+        dates.push(this.prettifyDate(this.project.finishedDate));
+      }
+
+      return _.uniq(dates).join(' - ');
+    }
+  },
   methods: {
     openModal(event) {
       event.preventDefault();
       this.showModal = true;
-    }
-  },
-  filters: {
+    },
+    prettifyDate(date) {
+      if (date) {
+        return this.capitalize(this.$d(new Date(date), 'short'));
+      }
+
+      return '';
+    },
     capitalize(value) {
       if (!value) {
         return '';
@@ -143,5 +160,9 @@ $small-image-width: 100px;
   img, iframe {
     @extend %centered-block;
   }
+}
+
+.description {
+  @extend %paragraph;
 }
 </style>

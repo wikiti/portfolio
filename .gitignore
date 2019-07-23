@@ -22,5 +22,6 @@ yarn-error.log*
 
 # Firebase ignored files
 .firebaserc
+.firebase
 firebase-debug.log*
 database-debug.log*

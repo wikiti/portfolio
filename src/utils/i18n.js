@@ -40,6 +40,7 @@ const messages = {
         title: 'Projects',
         name: 'Name',
         priority: 'Priority',
+        date: 'Started date',
         short: 'Short description',
         description: 'Long description',
         url: 'Url',
@@ -90,14 +91,16 @@ const messages = {
         attachment: 'Attachment',
         attachments: {
           youtube: 'YouTube',
-          image: 'Image'
+          image: 'Image',
+          none: 'None'
         },
         types: {
           website: 'Website',
           videogame_web: 'Web videogame',
           videogame_native: 'Native videogame',
           app_web: 'Web app',
-          app_native: 'Native application'
+          app_native: 'Native application',
+          open_source: 'Open Source'
         },
         resources: {
           website: 'Website',
@@ -222,14 +225,16 @@ const messages = {
         attachment: 'Adjunto',
         attachments: {
           youtube: 'YouTube',
-          image: 'Imagen'
+          image: 'Imagen',
+          none: 'Ninguno'
         },
         types: {
           website: 'Página web',
           videogame_web: 'Videojuego web',
           videogame_native: 'Videojuego nativo',
           app_web: 'Aplicación web',
-          app_native: 'Aplicación nativa'
+          app_native: 'Aplicación nativa',
+          open_source: 'Software libre'
         },
         resources: {
           website: 'Sitio web',
@@ -288,7 +293,7 @@ const availableLocales = Object.keys(messages);
 let locale = (navigator.language || navigator.userLanguage).split(/[-_]/)[0];
 
 if (!availableLocales.includes(locale)) {
-  locale = 'en';
+  [locale] = availableLocales;
 }
 
 const i18n = new VueI18n({ locale, dateTimeFormats, messages });
