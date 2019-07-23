@@ -115,8 +115,14 @@ $small-image-width: 100px;
   width: $image-width;
 
   img {
+    @extend %animated;
+
     width: 100%;
     filter: grayscale(100%);
+
+    &:hover {
+      filter: none;
+    }
   }
 
   @include respond-to(small) {
