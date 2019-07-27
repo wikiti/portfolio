@@ -144,7 +144,8 @@ export default {
         'website',
         'app_web',
         'app_native',
-        'open_source'
+        'open_source',
+        'exercises'
       ],
       projectResourceTypes: ['website', 'play_store', 'repository'],
       projectAttachmentTypes: ['youtube', 'image', 'none']

@@ -101,7 +101,8 @@ const messages = {
           videogame_native: 'Native videogame',
           app_web: 'Web app',
           app_native: 'Native application',
-          open_source: 'Open Source'
+          open_source: 'Open Source',
+          exercises: 'Exercises and problems'
         },
         resources: {
           website: 'Website',
@@ -237,7 +238,8 @@ const messages = {
           videogame_native: 'Videojuego nativo',
           app_web: 'Aplicación web',
           app_native: 'Aplicación nativa',
-          open_source: 'Software libre'
+          open_source: 'Software libre',
+          exercises: 'Ejercicios y problemas'
         },
         resources: {
           website: 'Sitio web',
