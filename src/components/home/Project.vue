@@ -73,6 +73,9 @@ export default {
       if (this.project.finishedDate) {
         dates.push(this.prettifyDate(this.project.finishedDate));
       }
+      else {
+        dates.push(this.$t('home.projects.present'));
+      }
 
       return _.uniq(dates).join(' - ');
     }

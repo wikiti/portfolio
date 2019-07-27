@@ -87,6 +87,7 @@ const messages = {
         more: 'Show more',
         info: 'More info',
         loading: 'Loading projects',
+        present: 'In progress',
         logo: 'Logo',
         attachment: 'Attachment',
         attachments: {
@@ -134,7 +135,8 @@ const messages = {
         },
         tools: `
           Made with &#9829; with <a href="https://vuejs.org/" target="_blank">Vue.js</a> and
-          <a href="https://firebase.google.com/" target="_blank">Firebase</a>
+          <a href="https://firebase.google.com/" target="_blank">Firebase</a>, available on
+          <a href="https://github.com/wikiti/portfolio" target="_blank">GitHub</a>
         `
       }
     },
@@ -221,6 +223,7 @@ const messages = {
         more: 'Mostrar más',
         info: 'Más info.',
         loading: 'Cargando proyectos',
+        present: 'En curso',
         logo: 'Logotipo',
         attachment: 'Adjunto',
         attachments: {
@@ -268,7 +271,8 @@ const messages = {
         },
         tools: `
           Hecho con &#9829; en <a href="https://vuejs.org/" target="_blank">Vue.js</a> y
-          <a href="https://firebase.google.com/" target="_blank">Firebase</a>
+          <a href="https://firebase.google.com/" target="_blank">Firebase</a>, disponible en
+          <a href="https://github.com/wikiti/portfolio" target="_blank">GitHub</a>
         `
       }
     },

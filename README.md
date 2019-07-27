@@ -1,6 +1,6 @@
 # Daniel Herzog's portfolio
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/nitayneeman/made-with-love/blob/master/LICENSE)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
 Made with :heart: with - [Vue.js](https://vuejs.org/) and [Firebase](https://firebase.google.com)
 
@@ -95,9 +95,3 @@ node_modules/.bin/firebase deploy --only-functions
 - [My portfolio!](https://danielherzog.es)
 - [Vue.js](https://vuejs.org/)
 - [Firebase](https://firebase.google.com)
-
-## TODO
-
-- Add production data
-- Deploy this to GitHub
-- Configure domains and SSL
