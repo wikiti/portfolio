@@ -53,7 +53,7 @@ export default {
       }
 
       curriculum.state = 'process';
-      const uploadTask = firebase.storage().ref(`curriculums/${uuid()}`).put(userFile);
+      const uploadTask = firebase.storage().ref(`curriculums/${uuid()}/cv.pdf`).put(userFile);
       const previousUrl = curriculum.url;
 
       uploadTask.then(snapshot => snapshot.ref.getDownloadURL())
