@@ -11,7 +11,7 @@
 
       <ul>
         <li v-for="social in socialLinks" :key="social.id">
-          <a class="button" :href="social.url">
+          <a class="button" :href="social.url" target="_blank">
             <Icon :name="social.icon" scale="2" />
           </a>
         </li>

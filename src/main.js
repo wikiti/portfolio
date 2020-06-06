@@ -10,6 +10,7 @@ import 'vue-awesome/icons/brands/gitlab';
 import 'vue-awesome/icons/brands/google-play';
 import 'vue-awesome/icons/brands/linkedin';
 import 'vue-awesome/icons/brands/twitter';
+import '@/components/icons/sketchfab';
 
 Vue.config.productionTip = false;
 
