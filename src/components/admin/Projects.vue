@@ -11,7 +11,8 @@
                    :placeholder="$t('admin.projects.name')">
 
             <input type="number" min="0" v-model.number="project.priority"
-                   :placeholder="$t('admin.projects.priority')">
+                   :ref="priorityRef(project)" :placeholder="$t('admin.projects.priority')"
+                   @change="keepPriorityFocus(project)">
 
             <div class="block">
               <div class="block-half">
@@ -243,6 +244,22 @@ export default {
         object[locale] = null;
         return object;
       }, {});
+    },
+
+    /*
+     * NOTE: These methods are a simple hack to keep track of current edited element. After editing
+     * a project's priority, Vue does not know which element was edited (even if :key is used). So,
+     * after a priority value is modified, before rendering, we apply the focus to the modified
+     * input. Since projects are constantly reordered, the reference name is calculated per project.
+     */
+    priorityRef(project) {
+      return `priority-${project.id}`;
+    },
+    keepPriorityFocus(project) {
+      this.$nextTick(() => {
+        const input = this.$refs[this.priorityRef(project)][0];
+        input.focus();
+      });
     }
   }
 };
