@@ -36,6 +36,10 @@ const messages = {
         title: 'Curriculums',
         attachment_error: 'There has been an error when uploading the attachment'
       },
+      descriptions: {
+        title: 'Descriptions',
+        save: 'Save'
+      },
       projects: {
         title: 'Projects',
         name: 'Name',
@@ -76,10 +80,6 @@ const messages = {
       },
       summary: {
         title: 'Summary',
-        left:
-          'Enthusiastic, autonomous and responsible. A software engineer whose passion is to be able to work on projects that go beyond his horizons, allowing him to gain experience in the field of computer engineering and programming.',
-        right:
-          "Whether it's about programming business applications or personal projects, the goal will always be to try to create the product with the highest quality, providing a comfortable experience to the end-user.",
         download: 'Download Curriculum Vitae'
       },
       projects: {
@@ -173,6 +173,10 @@ const messages = {
         title: 'Curriculums',
         attachment_error: 'Ha ocurrido un error al subir el adjunto'
       },
+      descriptions: {
+        title: 'Descripciones',
+        save: 'Guardar'
+      },
       projects: {
         title: 'Proyectos',
         name: 'Nombre',
@@ -213,10 +217,6 @@ const messages = {
       },
       summary: {
         title: 'Resumen',
-        left:
-          'Entusiasta, autónomo y responsable. Un ingeniero informático cuya pasión es poder trabajar en proyectos que vayan más allá de sus horizontes, permitiendo así ganar experiencia en el campo de la ingeniería informática y la programación.',
-        right:
-          'Ya sea programando aplicaciones comerciales o proyectos personales, el objetivo será siempre tratar de crear el producto con la mayor calidad posible, proporcionando al usuario final una experiencia cómoda.',
         download: 'Descargar Currículum Vitae'
       },
       projects: {
