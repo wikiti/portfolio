@@ -16,6 +16,7 @@
 
 <script>
 import _ from 'lodash';
+import { mapActions } from 'vuex';
 
 import remoteCurriculums from '@/resources/curriculums';
 import remoteDescriptions from '@/resources/descriptions';
@@ -31,9 +32,11 @@ export default {
   mounted() {
     remoteCurriculums.get().then((data) => {
       this.curriculums = data;
+      this.moduleLoaded('curriculums');
     });
     remoteDescriptions.get().then((data) => {
       this.descriptions = data;
+      this.moduleLoaded('descriptions');
     });
   },
   computed: {
@@ -48,6 +51,9 @@ export default {
 
       return [];
     }
+  },
+  methods: {
+    ...mapActions(['moduleLoaded'])
   }
 };
 </script>

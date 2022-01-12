@@ -17,6 +17,7 @@
 
 <script>
 import _ from 'lodash';
+import { mapActions } from 'vuex';
 import projects from '@/resources/projects';
 import Project from '@/components/home/Project.vue';
 
@@ -32,6 +33,7 @@ export default {
   mounted() {
     projects.get().then((data) => {
       this.projects = _(data).orderBy(['priority', 'desc']).reverse().value();
+      this.moduleLoaded('projects');
     });
   },
   computed: {
@@ -40,6 +42,7 @@ export default {
     }
   },
   methods: {
+    ...mapActions(['moduleLoaded']),
     showMore() {
       this.visibleProjectCount += 3;
     }

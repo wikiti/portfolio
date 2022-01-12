@@ -107,6 +107,7 @@ export default {
 @import "@/assets/stylesheets/globals.scss";
 
 $image-width: 150px;
+$image-height: 150px;
 $small-image-width: 100px;
 
 .project {
@@ -116,6 +117,7 @@ $small-image-width: 100px;
 .project-logo {
   display: inline-block;
   width: $image-width;
+  height: $image-height;
 
   img {
     @extend %animated;

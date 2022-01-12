@@ -1,32 +1,40 @@
 <template>
-  <div class="home">
-    <Header />
+  <Loading :loading="!allModulesLoaded">
+    <div class="home">
+      <Header />
 
-    <hr>
+      <hr>
 
-    <div class="content">
-      <Summary />
-      <Projects />
-      <Contact />
+      <div class="content">
+        <Summary />
+        <Projects />
+        <Contact />
+      </div>
+
+      <hr>
+
+      <Footer />
     </div>
-
-    <hr>
-
-    <Footer />
-  </div>
+  </Loading>
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 import Header from '@/components/home/Header.vue';
 import Summary from '@/components/home/Summary.vue';
 import Projects from '@/components/home/Projects.vue';
 import Contact from '@/components/home/Contact.vue';
 import Footer from '@/components/home/Footer.vue';
+import Loading from '@/components/Loading.vue';
 
 export default {
   name: 'home',
   components: {
-    Header, Summary, Projects, Contact, Footer
+    Header, Summary, Projects, Contact, Footer, Loading
+  },
+  computed: {
+    ...mapGetters(['allModulesLoaded'])
   }
 };
 </script>

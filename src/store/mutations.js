@@ -14,5 +14,8 @@ export default {
   },
   [types.LOGOUT](state) {
     state.currentUser = null;
+  },
+  [types.MODULE_LOADED](state, module) {
+    state.loadedModules.push(module);
   }
 };

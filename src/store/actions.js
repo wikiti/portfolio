@@ -9,5 +9,8 @@ export default {
   },
   logout({ commit }) {
     commit(types.LOGOUT);
+  },
+  moduleLoaded({ commit }, module) {
+    commit(types.MODULE_LOADED, module);
   }
 };
