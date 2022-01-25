@@ -49,11 +49,11 @@ $textarea-height: 100px;
     width: math.div(100%, 2);
 
     &:first-child {
-      padding-right: $medium-spacing;
+      padding-right: $huge-spacing;
     }
 
     &:last-child {
-      padding-left: $medium-spacing;
+      padding-left: $huge-spacing;
     }
   }
 }

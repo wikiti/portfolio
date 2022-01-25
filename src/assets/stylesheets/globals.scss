@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,400i,700');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 
 @import "./colors.scss";
 @import "./measures.scss";
@@ -12,7 +12,7 @@
   vertical-align: top;
 
   font-size: $font-size;
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Roboto Mono', monospace;
   line-height: $font-size * 1.5;
 
   color: inherit;
@@ -119,7 +119,13 @@ h1 {
   @include heading(2.5);
   @extend %centered;
 
-  margin-top: $no-spacing;
+  margin-top: $huge-spacing;
+  margin-bottom: $huge-spacing;
+
+  @include respond-to(small) {
+    margin-top: $large-spacing;
+    margin-bottom: $large-spacing;
+  }
 }
 
 h1.subtitle {
@@ -218,6 +224,10 @@ button, a.button, input[type=submit]  {
 
 img, iframe {
   max-width: 100%;
+}
+
+hr {
+  margin: $huge-spacing auto;
 }
 
 // Forms

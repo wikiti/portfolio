@@ -118,7 +118,7 @@ const messages = {
         }
       },
       contact: {
-        title: 'Contact',
+        title: 'Contact form',
         name: 'Name (*)',
         contact: 'Email or phone (*)',
         message: 'Message (*)',
@@ -138,7 +138,6 @@ const messages = {
         contact: {
           title: 'Contact',
           email: {
-            label: 'Email:',
             value: 'info@danielherzog.es'
           }
         },
@@ -261,7 +260,7 @@ const messages = {
         }
       },
       contact: {
-        title: 'Contacto',
+        title: 'Formulario de contacto',
         name: 'Nombre (*)',
         contact: 'Correo o teléfono (*)',
         message: 'Mensaje (*)',
@@ -281,7 +280,6 @@ const messages = {
         contact: {
           title: 'Contacto',
           email: {
-            label: 'Correo:',
             value: 'info@danielherzog.es'
           }
         },

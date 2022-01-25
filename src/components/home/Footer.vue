@@ -19,14 +19,9 @@
 
     <div class="contact block-third">
       <h3>{{ $t("home.footer.contact.title") }}</h3>
-      <dl>
-        <dt>{{ $t("home.footer.contact.email.label") }}</dt>
-        <dd>
-          <a :href="`mailto:${$t('home.footer.contact.email.value')}`">{{
-            $t("home.footer.contact.email.value")
-          }}</a>
-        </dd>
-      </dl>
+      <a :href="`mailto:${$t('home.footer.contact.email.value')}`">{{
+        $t("home.footer.contact.email.value")
+      }}</a>
     </div>
 
     <div v-html="$t('home.footer.tools')" class="tools" />
@@ -36,7 +31,7 @@
 <script>
 import { orderBy } from 'lodash';
 import { mapActions } from 'vuex';
-import Icon from 'vue-awesome/components/Icon';
+import Icon from 'vue-awesome/components/Icon.vue';
 
 import social from '@/resources/social';
 
@@ -86,17 +81,6 @@ ul {
     &:not(:first-child) {
       margin-left: $small-spacing;
     }
-  }
-}
-
-dl {
-  dt,
-  dd {
-    display: inline-block;
-  }
-
-  dd {
-    margin-left: $small-spacing;
   }
 }
 

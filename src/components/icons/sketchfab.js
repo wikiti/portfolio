@@ -1,4 +1,4 @@
-import Icon from 'vue-awesome/components/Icon';
+import Icon from 'vue-awesome/components/Icon.vue';
 
 Icon.register({
   'brands/sketchfab': {
