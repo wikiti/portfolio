@@ -159,7 +159,7 @@ export default {
   },
   computed: {
     sortedProjects() {
-      return _.orderBy(this.projects, ['priority', 'desc']);
+      return _.orderBy(this.projects, 'priority', 'desc');
     }
   },
   methods: {

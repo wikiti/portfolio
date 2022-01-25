@@ -34,11 +34,18 @@ const messages = {
       confirm: 'Are you sure?',
       curriculum: {
         title: 'Curriculums',
-        attachment_error: 'There has been an error when uploading the attachment'
+        attachment_error:
+          'There has been an error when uploading the attachment'
       },
       descriptions: {
         title: 'Descriptions',
         save: 'Save'
+      },
+      experience: {
+        title: 'Experience',
+        save: 'Save',
+        new: 'New',
+        delete: 'Delete'
       },
       projects: {
         title: 'Projects',
@@ -52,7 +59,8 @@ const messages = {
         select_type: 'Select a project type',
         select_resource_type: 'Select a resource type',
         select_attachment_type: 'Select an attachment type',
-        attachment_error: 'There has been an error when uploading the attachment',
+        attachment_error:
+          'There has been an error when uploading the attachment',
         new: 'New',
         create: 'Create',
         save: 'Save',
@@ -86,7 +94,6 @@ const messages = {
         title: 'Projects',
         more: 'Show more',
         info: 'More info',
-        loading: 'Loading projects...',
         present: 'In progress',
         logo: 'Logo',
         attachment: 'Attachment',
@@ -117,7 +124,8 @@ const messages = {
         message: 'Message (*)',
         submit: 'Submit',
         success: 'Your message has been sent successfully.',
-        error: 'There was an error when sending your message. Please try again later.'
+        error:
+          'There was an error when sending your message. Please try again later.'
       },
       footer: {
         location: {
@@ -177,6 +185,12 @@ const messages = {
         title: 'Descripciones',
         save: 'Guardar'
       },
+      experience: {
+        title: 'Experiencia',
+        save: 'Guardar',
+        new: 'Nuevo',
+        delete: 'Borrar'
+      },
       projects: {
         title: 'Proyectos',
         name: 'Nombre',
@@ -223,7 +237,6 @@ const messages = {
         title: 'Proyectos',
         more: 'Mostrar más',
         info: 'Más info.',
-        loading: 'Cargando proyectos...',
         present: 'En curso',
         logo: 'Logotipo',
         attachment: 'Adjunto',
@@ -254,7 +267,8 @@ const messages = {
         message: 'Mensaje (*)',
         submit: 'Enviar',
         success: 'El mensaje se ha enviado correctamente.',
-        error: 'Ha ocurrido un error al enviar el mensaje. Por favor, inténtelo de nuevo más tarde.'
+        error:
+          'Ha ocurrido un error al enviar el mensaje. Por favor, inténtelo de nuevo más tarde.'
       },
       footer: {
         location: {
@@ -303,6 +317,6 @@ if (!availableLocales.includes(locale)) {
 }
 
 const i18n = new VueI18n({ locale, dateTimeFormats, messages });
-i18n.availableLocales = availableLocales; // Custom property
+// i18n.availableLocales = availableLocales; // Custom property
 
 export default i18n;

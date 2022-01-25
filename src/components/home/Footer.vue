@@ -1,13 +1,12 @@
 <template>
   <footer class="block">
     <div class="location block-third">
-      <h3>{{ $t('home.footer.location.title') }}</h3>
-      <address>{{ $t('home.footer.location.body') }}</address>
-
+      <h3>{{ $t("home.footer.location.title") }}</h3>
+      <address>{{ $t("home.footer.location.body") }}</address>
     </div>
 
     <div class="social block-third">
-      <h3>{{ $t('home.footer.social.title') }}</h3>
+      <h3>{{ $t("home.footer.social.title") }}</h3>
 
       <ul>
         <li v-for="social in socialLinks" :key="social.id">
@@ -19,12 +18,13 @@
     </div>
 
     <div class="contact block-third">
-      <h3>{{ $t('home.footer.contact.title') }}</h3>
+      <h3>{{ $t("home.footer.contact.title") }}</h3>
       <dl>
-        <dt>{{ $t('home.footer.contact.email.label') }}</dt>
+        <dt>{{ $t("home.footer.contact.email.label") }}</dt>
         <dd>
-          <a :href="`mailto:${$t('home.footer.contact.email.value')}`"
-            >{{ $t('home.footer.contact.email.value') }}</a>
+          <a :href="`mailto:${$t('home.footer.contact.email.value')}`">{{
+            $t("home.footer.contact.email.value")
+          }}</a>
         </dd>
       </dl>
     </div>
@@ -34,9 +34,10 @@
 </template>
 
 <script>
-import _ from 'lodash';
+import { orderBy } from 'lodash';
 import { mapActions } from 'vuex';
-import Icon from 'vue-awesome/components/Icon.vue';
+import Icon from 'vue-awesome/components/Icon';
+
 import social from '@/resources/social';
 
 export default {
@@ -47,7 +48,7 @@ export default {
   },
   mounted() {
     social.get().then((data) => {
-      this.socialLinks = _(data).orderBy(['priority', 'desc']).reverse().value();
+      this.socialLinks = orderBy(data, 'priority', 'asc');
       this.moduleLoaded('social');
     });
   },
@@ -57,8 +58,8 @@ export default {
 };
 </script>
 
-<style scoped lang="scss">
-@import "@/assets/stylesheets/globals.scss";
+<style scoped lang='scss'>
+@import '@/assets/stylesheets/globals.scss';
 
 footer {
   @extend %centered;
@@ -89,7 +90,8 @@ ul {
 }
 
 dl {
-  dt, dd {
+  dt,
+  dd {
     display: inline-block;
   }
 
@@ -99,7 +101,8 @@ dl {
 }
 
 .tools {
-  &, ::v-deep a {
+  &,
+  ::v-deep a {
     @include small-font;
   }
 

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // Spacing
 // -------------------------------
 $no-spacing: 0;
@@ -8,7 +10,7 @@ $huge-spacing: $large-spacing * 2;
 
 // Font sizes
 // -------------------------------
-$font-size: 1.0rem;
+$font-size: 1rem;
 
 // Sizing
 // -------------------------------
@@ -23,9 +25,7 @@ $textarea-height: 100px;
     @media (max-width: $max-width - 1px) {
       @content;
     }
-  }
-
-  @else {
+  } @else {
     @media (min-width: $max-width) {
       @content;
     }
@@ -46,12 +46,12 @@ $textarea-height: 100px;
   @extend .block;
 
   @include respond-to(medium) {
-    width: (100% / 2);
+    width: math.div(100%, 2);
 
     &:first-child {
       padding-right: $medium-spacing;
     }
-  
+
     &:last-child {
       padding-left: $medium-spacing;
     }
@@ -62,7 +62,7 @@ $textarea-height: 100px;
   @extend .block;
 
   @include respond-to(medium) {
-    width: (100% / 3);
+    width: math.div(100%, 3);
 
     padding-right: $medium-spacing;
     padding-left: $medium-spacing;
@@ -70,7 +70,7 @@ $textarea-height: 100px;
     &:first-child {
       padding-left: $no-spacing;
     }
-  
+
     &:last-child {
       padding-right: $no-spacing;
     }

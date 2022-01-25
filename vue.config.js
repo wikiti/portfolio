@@ -1,5 +1,3 @@
 module.exports = {
-  transpileDependencies: [
-    /\bvue-awesome\b/
-  ]
+  transpileDependencies: [/\bvue-awesome\b/]
 };

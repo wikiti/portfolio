@@ -11,6 +11,7 @@ export default {
     return includes(state.loadedModules, 'descriptions')
       && includes(state.loadedModules, 'social')
       && includes(state.loadedModules, 'projects')
-      && includes(state.loadedModules, 'curriculums');
+      && includes(state.loadedModules, 'curriculums')
+      && includes(state.loadedModules, 'experience');
   }
 };

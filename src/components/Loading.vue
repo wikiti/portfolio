@@ -20,6 +20,7 @@ export default {
 
 <style scoped lang="scss">
 @import "@/assets/stylesheets/globals.scss";
+
 .loading-wrapper {
   position: relative;
 }

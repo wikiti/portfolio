@@ -60,7 +60,7 @@ export default {
   },
   computed: {
     sortedSocialLinks() {
-      return _.orderBy(this.socialLinks, ['priority', 'desc']);
+      return _.orderBy(this.socialLinks, 'priority', 'desc');
     }
   },
   methods: {

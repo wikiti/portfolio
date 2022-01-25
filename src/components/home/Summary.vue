@@ -57,3 +57,11 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss">
+@import "@/assets/stylesheets/globals.scss";
+
+.download {
+  margin: $large-spacing auto;
+}
+</style>

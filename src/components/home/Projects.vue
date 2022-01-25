@@ -8,15 +8,11 @@
       <a v-if="visibleProjects.length < projects.length" class="more" @click="showMore"
         >{{ $t('home.projects.more') }}</a>
     </div>
-
-    <div v-else class="loading">
-      {{ $t('home.projects.loading') }}
-    </div>
   </div>
 </template>
 
 <script>
-import _ from 'lodash';
+import { orderBy } from 'lodash';
 import { mapActions } from 'vuex';
 import projects from '@/resources/projects';
 import Project from '@/components/home/Project.vue';
@@ -32,7 +28,8 @@ export default {
   },
   mounted() {
     projects.get().then((data) => {
-      this.projects = _(data).orderBy(['priority', 'desc']).reverse().value();
+      console.log(data);
+      this.projects = orderBy(data, 'priority', 'desc');
       this.moduleLoaded('projects');
     });
   },
