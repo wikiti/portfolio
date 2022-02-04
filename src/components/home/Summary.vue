@@ -3,7 +3,7 @@
     <h2>{{ $t('home.summary.title') }}</h2>
 
     <div class="block">
-      <p class="block-half" v-for="(paragraph, index) in description" :key="index">
+      <p class="block-half huge-spacing" v-for="(paragraph, index) in description" :key="index">
         {{paragraph}}
       </p>
     </div>

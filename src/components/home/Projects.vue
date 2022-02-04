@@ -2,7 +2,7 @@
   <div class="projects">
     <h2>{{ $t('home.projects.title') }}</h2>
 
-    <div v-if="projects" class="project-list">
+    <div v-if="projects" class="project-list block">
       <Project v-for="project in visibleProjects" :project="project" :key="project.id" />
 
       <a v-if="visibleProjects.length < projects.length" class="more" @click="showMore"
@@ -23,7 +23,7 @@ export default {
   data() {
     return {
       projects: null,
-      visibleProjectCount: 3
+      visibleProjectCount: 4
     };
   },
   mounted() {
@@ -41,7 +41,7 @@ export default {
   methods: {
     ...mapActions(['moduleLoaded']),
     showMore() {
-      this.visibleProjectCount += 3;
+      this.visibleProjectCount += 4;
     }
   }
 };

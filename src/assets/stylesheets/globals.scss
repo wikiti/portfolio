@@ -135,7 +135,7 @@ h1.subtitle {
 h2 {
   @include heading(1.5);
 
-  margin-top: $large-spacing;
+  margin-top: $huge-spacing;
 
   @include respond-to(small) {
     margin-top: $large-spacing;

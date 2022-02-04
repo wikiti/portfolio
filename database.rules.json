@@ -1,6 +1,21 @@
 {
   "rules": {
-    ".read": true,
-    ".write": "auth.token.admin == true"
+  	".read": "auth.token.admin == true",
+    ".write": "auth.token.admin == true",
+    "curriculums": {
+      ".read": true
+    },
+    "projects": {
+      ".read": true
+    },
+    "social": {
+      ".read": true
+    },
+    "descriptions": {
+      ".read": true
+    },
+    "experience": {
+      ".read": true
+    }
   }
 }

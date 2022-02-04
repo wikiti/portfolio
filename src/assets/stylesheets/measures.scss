@@ -48,11 +48,19 @@ $textarea-height: 100px;
   @include respond-to(medium) {
     width: math.div(100%, 2);
 
-    &:first-child {
+    &:nth-child(odd) {
+      padding-right: $large-spacing;
+    }
+
+    &:nth-child(even) {
+      padding-left: $large-spacing;
+    }
+
+    &.huge-spacing:nth-child(odd) {
       padding-right: $huge-spacing;
     }
 
-    &:last-child {
+    &.huge-spacing:nth-child(even) {
       padding-left: $huge-spacing;
     }
   }

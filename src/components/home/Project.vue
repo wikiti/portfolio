@@ -1,30 +1,32 @@
 <template>
-  <div class="project">
-    <div class="project-logo">
-      <a class="clear-link more-info" href="#modal" @click="openModal">
-        <img :src="project.logo" :alt="$t('home.projects.logo')" />
-      </a>
-    </div>
-
+  <div class="project block-half">
     <div class="project-content">
       <div class="project-header">
-        <h3>{{ project.name }}</h3>
-        <div class="date">
-          {{ projectDates }}
-        </div>
-        <div class="type">
-          {{ $t(`home.projects.types.${project.type}`) }}
-        </div>
+        <h3>
+          {{ project.name }} - {{ $t(`home.projects.types.${project.type}`) }}
+        </h3>
+      </div>
+
+      <div class="date">
+        {{ projectDates }}
       </div>
 
       <p class="short-description" v-html="project.short[$i18n.locale]" />
 
-      <div class="links">
-        <a v-if="project.resource" class="resource" target="_blank" :href="project.resource.url"
-          >{{ $t(`home.projects.resources.${project.resource.type}`) }}</a>
+      <div class="project-footer">
+        <div class="links">
+          <a
+            v-if="project.resource"
+            class="resource"
+            target="_blank"
+            :href="project.resource.url"
+            >{{ $t(`home.projects.resources.${project.resource.type}`) }}</a
+          >
 
-        <a class="more-info" href="#modal" @click="openModal"
-          >{{$t('home.projects.info')}}</a>
+          <a class="more-info" href="#modal" @click="openModal">{{
+            $t('home.projects.info')
+          }}</a>
+        </div>
       </div>
     </div>
 
@@ -34,22 +36,37 @@
       <p class="short-description" v-html="project.short[$i18n.locale]" />
 
       <div class="attachment">
-        <a class="clear-link image" target="_blank" v-if="project.attachment.type === 'image'"
-            :href="project.attachment.url">
+        <a
+          class="clear-link image"
+          target="_blank"
+          v-if="project.attachment.type === 'image'"
+          :href="project.attachment.url"
+        >
           <img :alt="$t('home.projects.logo')" :src="project.attachment.url" />
         </a>
 
         <div class="youtube" v-if="project.attachment.type === 'youtube'">
-          <iframe width="560" height="315" :src="project.attachment.url"
-                  frameborder="0" allow="encrypted-media; picture-in-picture" allowfullscreen />
+          <iframe
+            width="560"
+            height="315"
+            :src="project.attachment.url"
+            frameborder="0"
+            allow="encrypted-media; picture-in-picture"
+            allowfullscreen
+          />
         </div>
       </div>
 
       <div class="description" v-html="project.description[$i18n.locale]" />
 
       <div class="links">
-        <a v-if="project.resource" class="resource" target="_blank" :href="project.resource.url"
-          >{{ $t(`home.projects.resources.${project.resource.type}`) }}</a>
+        <a
+          v-if="project.resource"
+          class="resource"
+          target="_blank"
+          :href="project.resource.url"
+          >{{ $t(`home.projects.resources.${project.resource.type}`) }}</a
+        >
       </div>
     </Modal>
   </div>
@@ -96,7 +113,10 @@ export default {
       if (!value) {
         return '';
       }
-      const string = value.toString().toLowerCase().replace(/[^a-z0-9., -_]/, '');
+      const string = value
+        .toString()
+        .toLowerCase()
+        .replace(/[^a-z0-9., -_]/, '');
       return string.replace(/^\w/, char => char.toUpperCase());
     }
   }
@@ -104,7 +124,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-@import "@/assets/stylesheets/globals.scss";
+@import '@/assets/stylesheets/globals.scss';
 
 $image-width: 150px;
 $image-height: 150px;
@@ -112,39 +132,6 @@ $small-image-width: 100px;
 
 .project {
   margin-bottom: $large-spacing;
-}
-
-.project-logo {
-  display: inline-block;
-  width: $image-width;
-  height: $image-height;
-
-  img {
-    @extend %animated;
-
-    width: 100%;
-    filter: grayscale(100%);
-
-    &:hover {
-      filter: none;
-    }
-  }
-
-  @include respond-to(small) {
-    width: $small-image-width;
-  }
-}
-
-.project-content {
-  display: inline-block;
-  width: calc(100% - #{$image-width});
-
-  box-sizing: border-box;
-  padding-left: $large-spacing;
-
-  @include respond-to(small) {
-    width: calc(100% - #{$small-image-width});
-  }
 }
 
 .links {
@@ -155,20 +142,17 @@ $small-image-width: 100px;
   }
 }
 
-.type, .date {
+.date {
   color: $gray;
   margin-bottom: $medium-spacing;
-}
-
-.date {
-  float: right;
   margin-left: $small-spacing;
 }
 
 .attachment {
   margin-bottom: $medium-spacing;
 
-  img, iframe {
+  img,
+  iframe {
     @extend %centered-block;
   }
 }

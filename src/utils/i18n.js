@@ -55,7 +55,6 @@ const messages = {
         short: 'Short description',
         description: 'Long description',
         url: 'Url',
-        logo: 'Logo',
         select_type: 'Select a project type',
         select_resource_type: 'Select a resource type',
         select_attachment_type: 'Select an attachment type',
@@ -95,7 +94,6 @@ const messages = {
         more: 'Show more',
         info: 'More info',
         present: 'In progress',
-        logo: 'Logo',
         attachment: 'Attachment',
         attachments: {
           youtube: 'YouTube',
@@ -197,7 +195,6 @@ const messages = {
         short: 'Descripción corta',
         description: 'Descripción larga',
         url: 'Url',
-        logo: 'Logo',
         select_type: 'Seleccione un tipo de proyecto',
         select_resource_type: 'Seleccione un tipo de recurso',
         select_attachment_type: 'Seleccione un tipo de adjunto',
@@ -237,7 +234,6 @@ const messages = {
         more: 'Mostrar más',
         info: 'Más info.',
         present: 'En curso',
-        logo: 'Logotipo',
         attachment: 'Adjunto',
         attachments: {
           youtube: 'YouTube',
@@ -251,7 +247,7 @@ const messages = {
           app_web: 'Aplicación web',
           app_native: 'Aplicación nativa',
           open_source: 'Software libre',
-          exercises: 'Ejercicios y problemas'
+          exercises: 'Problemas'
         },
         resources: {
           website: 'Sitio web',
