@@ -1,9 +1,9 @@
 <template>
-  <div class="admin-curriculums">
+  <div>
     <h2>{{ $t('admin.curriculum.title') }}</h2>
 
     <div v-for="curriculum in curriculums" :key="curriculum.id">
-      <fieldset class="file">
+      <fieldset>
         <label>{{ $t(`languages.${curriculum.id}`) }}</label>
         <input type="text" readonly required v-model="curriculum.url"/>
         <input type="file" accept=".pdf"

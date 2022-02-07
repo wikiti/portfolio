@@ -43,6 +43,9 @@ const messages = {
       },
       experience: {
         title: 'Experience',
+        name: 'Company',
+        position: 'Position',
+        description: 'Description',
         save: 'Save',
         new: 'New',
         delete: 'Delete'
@@ -89,11 +92,14 @@ const messages = {
         title: 'Summary',
         download: 'Download Curriculum Vitae'
       },
+      experience: {
+        title: 'Work experience',
+        position: '{position} @ {name}'
+      },
       projects: {
         title: 'Projects',
         more: 'Show more',
         info: 'More info',
-        present: 'In progress',
         attachment: 'Attachment',
         attachments: {
           youtube: 'YouTube',
@@ -107,7 +113,7 @@ const messages = {
           app_web: 'Web app',
           app_native: 'Native application',
           open_source: 'Open Source',
-          exercises: 'Exercises and problems'
+          exercises: 'Problems'
         },
         resources: {
           website: 'Website',
@@ -159,6 +165,9 @@ const messages = {
       password: 'Password',
       submit: 'Sign up',
       signup: 'I already have a user account'
+    },
+    common: {
+      present: 'In progress'
     }
   },
   es: {
@@ -184,6 +193,9 @@ const messages = {
       },
       experience: {
         title: 'Experiencia',
+        name: 'Compañía',
+        position: 'Posición',
+        description: 'Descripción',
         save: 'Guardar',
         new: 'Nuevo',
         delete: 'Borrar'
@@ -229,11 +241,14 @@ const messages = {
         title: 'Resumen',
         download: 'Descargar Currículum Vitae'
       },
+      experience: {
+        title: 'Experiencia laboral',
+        position: '{position} en {name}'
+      },
       projects: {
         title: 'Proyectos',
         more: 'Mostrar más',
         info: 'Más info.',
-        present: 'En curso',
         attachment: 'Adjunto',
         attachments: {
           youtube: 'YouTube',
@@ -299,6 +314,9 @@ const messages = {
       password: 'Contraseña',
       submit: 'Registrarse',
       login: 'Ya tengo un usuario'
+    },
+    common: {
+      present: 'En curso'
     }
   }
 };
@@ -311,6 +329,5 @@ if (!availableLocales.includes(locale)) {
 }
 
 const i18n = new VueI18n({ locale, dateTimeFormats, messages });
-// i18n.availableLocales = availableLocales; // Custom property
 
 export default i18n;

@@ -1,11 +1,11 @@
 <template>
-  <div class="admin-social">
+  <div>
     <h2>{{ $t('admin.social.title') }}</h2>
 
     <div v-for="socialLink in sortedSocialLinks" :key="socialLink.id">
       <form @submit.prevent="updateSocialLink(socialLink)">
 
-        <fieldset class="social" :disabled="socialLink.state == 'upload'">
+        <fieldset :disabled="socialLink.state == 'upload'">
           <input type="text" disabled
                  :value="socialLink.id"/>
           <input type="text" required v-model="socialLink.url"

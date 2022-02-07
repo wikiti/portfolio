@@ -6,7 +6,7 @@
       <a @click="logout" v-if="currentUser">{{ $t('navbar.logout') }}</a>
     </div>
     <div :class="currentUser ? 'block-half' : 'block'">
-      <a class="language" :class="locale" v-for="locale in alternativeLanguages" :key="locale"
+      <a v-for="locale in alternativeLanguages" :key="locale"
           @click="changeLocale(locale)" >{{locale}}</a>
     </div>
   </nav>

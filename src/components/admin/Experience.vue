@@ -1,12 +1,12 @@
 <template>
-  <div class="admin-experience">
+  <div>
     <h2>{{ $t('admin.experience.title') }}</h2>
 
     <div v-for="item in experience" :key="item.id">
       <form @submit.prevent="updateItem(item)">
 
-        <fieldset class="experience" :disabled="item.state == 'upload'">
-          <fieldset class="properties">
+        <fieldset :disabled="item.state == 'upload'">
+          <fieldset>
             <input type="text" disabled :value="item.id"/>
             <input type="text" required v-model="item.name"
                    :placeholder="$t('admin.experience.name')">
@@ -14,7 +14,7 @@
                    :placeholder="$t('admin.experience.position')">
           </fieldset>
 
-          <fieldset class="dates">
+          <fieldset>
             <div class="block">
               <div class="block-half">
                 <input type="date" required v-model="item.startedAt">
@@ -26,7 +26,7 @@
             </div>
           </fieldset>
 
-          <fieldset class="description">
+          <fieldset>
             <div v-for="locale in $i18n.availableLocales" :key="locale">
               <label>{{ $t(`languages.${locale}`) }}</label>
               <textarea required v-model="item.description[locale]"

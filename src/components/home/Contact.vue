@@ -17,7 +17,7 @@
       <input type="submit" :value="$t('home.contact.submit')" :disabled="sending || !validForm" />
     </form>
 
-    <Modal v-model="modal.show" class="contact-modal">
+    <Modal v-model="modal.show">
       <p class="error" v-if="modal.error">{{ $t('home.contact.error') }}</p>
       <p v-else>{{ $t('home.contact.success') }}</p>
     </Modal>

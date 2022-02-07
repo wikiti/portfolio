@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 
-@import "./colors.scss";
-@import "./measures.scss";
+@import './colors.scss';
+@import './measures.scss';
 
 // Reset default browser rules
 // -------------------------------
@@ -98,7 +98,7 @@ body {
 
   max-width: $max-width;
 
-  &[data-modal-count]:not([data-modal-count="0"]) {
+  &[data-modal-count]:not([data-modal-count='0']) {
     overflow-y: hidden;
   }
 }
@@ -148,6 +148,15 @@ h3 {
   margin-top: $no-spacing;
 }
 
+h4 {
+  @include heading(1);
+
+  font-weight: normal;
+  color: $gray;
+  margin-bottom: $medium-spacing;
+  margin-left: $small-spacing;
+}
+
 // Links and buttons
 // -------------------------------
 
@@ -157,11 +166,11 @@ a:not(.button):not(.clear-link) {
   cursor: pointer;
 
   &:before {
-    content: "[";
+    content: '[';
   }
 
   &:after {
-    content: "]";
+    content: ']';
   }
 
   &:focus {
@@ -169,7 +178,9 @@ a:not(.button):not(.clear-link) {
   }
 }
 
-button, a.button, input[type=submit]  {
+button,
+a.button,
+input[type='submit'] {
   @extend %bordered, %animated;
 
   display: inline-block;
@@ -185,7 +196,8 @@ button, a.button, input[type=submit]  {
   }
 
   &:not([disabled]) {
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       background-color: $black;
       color: $white;
       outline: none;
@@ -205,7 +217,8 @@ button, a.button, input[type=submit]  {
     border-color: $red;
 
     &:not([disabled]) {
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         background-color: $red;
       }
     }
@@ -222,7 +235,8 @@ button, a.button, input[type=submit]  {
 // Images and other
 // -------------------------------
 
-img, iframe {
+img,
+iframe {
   max-width: 100%;
 }
 
@@ -237,9 +251,13 @@ label {
   font-weight: bold;
 }
 
-input[type=text], input[type=password], input[type=email], input[type=number], input[type=date],
-textarea, select {
-
+input[type='text'],
+input[type='password'],
+input[type='email'],
+input[type='number'],
+input[type='date'],
+textarea,
+select {
   @extend .block;
   @extend %bordered;
 
@@ -275,7 +293,8 @@ textarea {
 }
 
 // Remove date input arrows
-input[type=date]::-webkit-inner-spin-button, input[type=date]::-webkit-outer-spin-button {
+input[type='date']::-webkit-inner-spin-button,
+input[type='date']::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
@@ -301,7 +320,7 @@ fieldset {
 }
 
 .loading-ring:after {
-  content: " ";
+  content: ' ';
   display: block;
   width: 64px;
   height: 64px;

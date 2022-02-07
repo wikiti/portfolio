@@ -1,5 +1,5 @@
 <template>
-  <div class="signup">
+  <div>
     <h2>{{ $t('signup.title') }}</h2>
 
     <form @submit="checkForm">

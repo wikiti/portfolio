@@ -1,11 +1,11 @@
 <template>
-  <div class="projects">
+  <div>
     <h2>{{ $t('home.projects.title') }}</h2>
 
-    <div v-if="projects" class="project-list block">
+    <div v-if="projects" class="block">
       <Project v-for="project in visibleProjects" :project="project" :key="project.id" />
 
-      <a v-if="visibleProjects.length < projects.length" class="more" @click="showMore"
+      <a v-if="visibleProjects.length < projects.length" @click="showMore"
         >{{ $t('home.projects.more') }}</a>
     </div>
   </div>
@@ -28,7 +28,6 @@ export default {
   },
   mounted() {
     projects.get().then((data) => {
-      console.log(data);
       this.projects = orderBy(data, 'priority', 'desc');
       this.moduleLoaded('projects');
     });

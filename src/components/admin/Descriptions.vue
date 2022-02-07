@@ -1,8 +1,8 @@
 <template>
-  <div class="admin-description">
+  <div>
     <h2>{{ $t('admin.descriptions.title') }}</h2>
     <form @submit.prevent="updateDescriptions">
-      <fieldset class="descriptions" :disabled="state == 'upload'">
+      <fieldset :disabled="state == 'upload'">
         <div v-for="locale in $i18n.availableLocales" :key="locale">
           <label>{{ $t(`languages.${locale}`) }}</label>
           <textarea required v-model="descriptions[locale]"

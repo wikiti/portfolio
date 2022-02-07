@@ -1,11 +1,11 @@
 <template>
-  <div class="admin-projects" v-if="projects">
+  <div v-if="projects">
     <h2>{{ $t('admin.projects.title') }}</h2>
 
-    <div class="admin-project" v-for="project in sortedProjects" :key="project.id" >
+    <div v-for="project in sortedProjects" :key="project.id" >
       <form @submit.prevent="updateProject(project)">
         <fieldset>
-          <fieldset class="properties">
+          <fieldset>
             <input type="text" required v-model="project.id" disabled>
             <input type="text" required v-model="project.name"
                    :placeholder="$t('admin.projects.name')">
@@ -26,13 +26,13 @@
 
             <select required v-model="project.type">
               <option disabled :value="null">{{ $t('admin.projects.select_type') }}</option>
-              <option v-for="type in projectTypes" :key="type" :value="type">
-                {{ $t(`home.projects.types.${type}`) }}
+              <option v-for="projectType in projectTypes" :key="projectType" :value="projectType">
+                {{ $t(`home.projects.types.${projectType}`) }}
               </option>
             </select>
           </fieldset>
 
-          <fieldset class="short-descriptions">
+          <fieldset>
             <div v-for="locale in $i18n.availableLocales" :key="locale">
               <label>{{ $t(`languages.${locale}`) }}</label>
               <textarea required v-model="project.short[locale]"
@@ -40,7 +40,7 @@
             </div>
           </fieldset>
 
-          <fieldset class="descriptions">
+          <fieldset>
             <div v-for="locale in $i18n.availableLocales" :key="locale">
               <label>{{ $t(`languages.${locale}`) }}</label>
               <textarea required v-model="project.description[locale]"
@@ -48,7 +48,7 @@
             </div>
           </fieldset>
 
-          <fieldset class="resource">
+          <fieldset>
             <select required v-model="project.resource.type">
               <option disabled :value="null">
                 {{ $t('admin.projects.select_resource_type') }}
@@ -62,7 +62,7 @@
                    :placeholder="$t('admin.projects.url')">
           </fieldset>
 
-          <fieldset class="attachment">
+          <fieldset>
             <select required v-model="project.attachment.type"
                     :disabled="project.attachment.state == 'process'">
               <option disabled :value="null">
@@ -91,14 +91,14 @@
             </template>
           </fieldset>
 
-          <div class="submit">
+          <div>
             <input type="submit" :value="$t('admin.projects.save')" />
 
             <ConfirmationButton @click="deleteProject(project)" class="danger">
               {{ $t('admin.projects.delete') }}
             </ConfirmationButton>
 
-            <span class="submit-result" :class="project.result" v-if="project.result">
+            <span :class="project.result" v-if="project.result">
               {{ $t(`admin.projects.result.${project.result}`) }}
             </span>
           </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="summary">
+  <div>
     <h2>{{ $t('home.summary.title') }}</h2>
 
     <div class="block">

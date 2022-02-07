@@ -1,51 +1,42 @@
 <template>
   <div class="project block-half">
-    <div class="project-content">
-      <div class="project-header">
-        <h3>
-          {{ project.name }} - {{ $t(`home.projects.types.${project.type}`) }}
-        </h3>
-      </div>
+    <div>
+      <h3>
+        {{ project.name }} - {{ $t(`home.projects.types.${project.type}`) }}
+      </h3>
 
-      <div class="date">
-        {{ projectDates }}
-      </div>
+      <h4>{{ projectDates }}</h4>
 
-      <p class="short-description" v-html="project.short[$i18n.locale]" />
+      <p v-html="project.short[$i18n.locale]" />
 
-      <div class="project-footer">
-        <div class="links">
-          <a
-            v-if="project.resource"
-            class="resource"
-            target="_blank"
-            :href="project.resource.url"
-            >{{ $t(`home.projects.resources.${project.resource.type}`) }}</a
-          >
+      <div>
+        <a v-if="project.resource" target="_blank" :href="project.resource.url">{{
+          $t(`home.projects.resources.${project.resource.type}`)
+        }}</a>
 
-          <a class="more-info" href="#modal" @click="openModal">{{
-            $t('home.projects.info')
-          }}</a>
-        </div>
+        <a href="#modal" @click="openModal">{{ $t('home.projects.info') }}</a>
       </div>
     </div>
 
-    <Modal v-model="showModal" class="project-modal">
+    <Modal v-model="showModal">
       <h3>{{ project.name }}</h3>
 
-      <p class="short-description" v-html="project.short[$i18n.locale]" />
+      <p v-html="project.short[$i18n.locale]" />
 
       <div class="attachment">
         <a
-          class="clear-link image"
+          class="clear-link"
           target="_blank"
           v-if="project.attachment.type === 'image'"
           :href="project.attachment.url"
         >
-          <img :alt="$t('home.projects.attachment')" :src="project.attachment.url" />
+          <img
+            :alt="$t('home.projects.attachment')"
+            :src="project.attachment.url"
+          />
         </a>
 
-        <div class="youtube" v-if="project.attachment.type === 'youtube'">
+        <div v-if="project.attachment.type === 'youtube'">
           <iframe
             width="560"
             height="315"
@@ -62,7 +53,6 @@
       <div class="links">
         <a
           v-if="project.resource"
-          class="resource"
           target="_blank"
           :href="project.resource.url"
           >{{ $t(`home.projects.resources.${project.resource.type}`) }}</a
@@ -73,11 +63,12 @@
 </template>
 
 <script>
-import _ from 'lodash';
 import Modal from '@/components/Modal.vue';
+import datesMixin from '@/mixins/dates';
 
 export default {
   name: 'Projects',
+  mixins: [datesMixin],
   props: ['project'],
   components: { Modal },
   data() {
@@ -85,39 +76,16 @@ export default {
   },
   computed: {
     projectDates() {
-      const dates = [this.prettifyDate(this.project.date)];
-
-      if (this.project.finishedDate) {
-        dates.push(this.prettifyDate(this.project.finishedDate));
-      }
-      else {
-        dates.push(this.$t('home.projects.present'));
-      }
-
-      return _.uniq(dates).join(' - ');
+      return this.prettifyDateRange(
+        this.project.date,
+        this.project.finishedDate
+      );
     }
   },
   methods: {
     openModal(event) {
       event.preventDefault();
       this.showModal = true;
-    },
-    prettifyDate(date) {
-      if (date) {
-        return this.capitalize(this.$d(new Date(date), 'short'));
-      }
-
-      return '';
-    },
-    capitalize(value) {
-      if (!value) {
-        return '';
-      }
-      const string = value
-        .toString()
-        .toLowerCase()
-        .replace(/[^a-z0-9., -_]/, '');
-      return string.replace(/^\w/, char => char.toUpperCase());
     }
   }
 };
@@ -140,12 +108,6 @@ $small-image-width: 100px;
   a {
     margin-right: $small-spacing;
   }
-}
-
-.date {
-  color: $gray;
-  margin-bottom: $medium-spacing;
-  margin-left: $small-spacing;
 }
 
 .attachment {

@@ -1,11 +1,11 @@
 <template>
   <Loading :loading="!allModulesLoaded">
-    <div class="home">
+    <div>
       <Header />
 
       <hr>
 
-      <div class="content">
+      <div>
         <Summary />
         <Experience />
         <Projects />

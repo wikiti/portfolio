@@ -1,11 +1,11 @@
 <template>
   <footer class="block">
-    <div class="location block-third">
+    <div class="block-third">
       <h3>{{ $t("home.footer.location.title") }}</h3>
       <address>{{ $t("home.footer.location.body") }}</address>
     </div>
 
-    <div class="social block-third">
+    <div class="block-third">
       <h3>{{ $t("home.footer.social.title") }}</h3>
 
       <ul>
@@ -17,7 +17,7 @@
       </ul>
     </div>
 
-    <div class="contact block-third">
+    <div class="block-third">
       <h3>{{ $t("home.footer.contact.title") }}</h3>
       <a :href="`mailto:${$t('home.footer.contact.email.value')}`">{{
         $t("home.footer.contact.email.value")

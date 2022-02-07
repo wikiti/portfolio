@@ -1,16 +1,13 @@
 <template>
-  <div class="experience">
+  <div>
     <h2>{{ $t('home.experience.title') }}</h2>
 
-    <div v-if="experience" class="experience-list">
-      <div v-for="item in experience" class="experience-item" :key="item.id">
-        <h3 class="experience-name">{{ item.name }}</h3>
-        <h4 class="experience-subtitle">
-          <span class="experience-position">{{ item.position }}</span>
-          <span class="experience-date">{{ dateRange(item) }}</span>
-        </h4>
+    <div v-if="experience">
+      <div v-for="item in experience" :key="item.id">
+        <h3>{{ $t('home.experience.position', item) }}</h3>
+        <h4>{{ prettifyDateRange(item.startedAt, item.endedAt) }}</h4>
 
-        <p class="experience-description">{{ item.description[$i18n.locale] }}</p>
+        <p>{{ item.description[$i18n.locale] }}</p>
       </div>
     </div>
   </div>
@@ -20,12 +17,14 @@
 import { orderBy } from 'lodash';
 import { mapActions } from 'vuex';
 import experience from '@/resources/experience';
+import datesMixin from '@/mixins/dates';
 
 export default {
   name: 'Experience',
+  mixins: [datesMixin],
   data() {
     return {
-      experience: null
+      experience: []
     };
   },
   mounted() {
@@ -35,10 +34,7 @@ export default {
     });
   },
   methods: {
-    ...mapActions(['moduleLoaded']),
-    dateRange(item) {
-      return item.id; // TODO: Prettify startedAt and endedAt
-    }
+    ...mapActions(['moduleLoaded'])
   }
 };
 </script>

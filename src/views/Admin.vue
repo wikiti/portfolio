@@ -1,5 +1,5 @@
 <template>
-  <div class="admin">
+  <div>
     <h1>{{ $t('admin.title') }}</h1>
 
     <Descriptions />
