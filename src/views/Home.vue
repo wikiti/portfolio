@@ -3,7 +3,7 @@
     <div>
       <Header />
 
-      <hr>
+      <hr />
 
       <div>
         <Summary />
@@ -12,7 +12,7 @@
         <Contact />
       </div>
 
-      <hr>
+      <hr />
 
       <Footer />
     </div>
@@ -33,7 +33,13 @@ import Loading from '@/components/Loading.vue';
 export default {
   name: 'home',
   components: {
-    Experience, Header, Summary, Projects, Contact, Footer, Loading
+    Experience,
+    Header,
+    Summary,
+    Projects,
+    Contact,
+    Footer,
+    Loading
   },
   computed: {
     ...mapGetters(['allModulesLoaded'])
