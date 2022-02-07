@@ -32,18 +32,6 @@
             </select>
           </fieldset>
 
-          <fieldset class="logo">
-            <input type="text" readonly v-model="project.logo" required
-                   :placeholder="$t('admin.projects.logo')" />
-            <input type="file" accept=".png,.jpg,.jpeg,.gif,.webp"
-                    @change="uploadLogoFile(project, $event)"
-                    :disabled="project.logoState == 'process'" />
-
-            <span class="error" v-if="project.logoState == 'error'">
-              {{ $t('admin.projects.attachment_error') }}
-            </span>
-          </fieldset>
-
           <fieldset class="short-descriptions">
             <div v-for="locale in $i18n.availableLocales" :key="locale">
               <label>{{ $t(`languages.${locale}`) }}</label>
@@ -171,7 +159,6 @@ export default {
         attachment: { type: null, url: null },
         description: this.buildLocalesObject(),
         id: uuid(),
-        logo: null,
         name: null,
         new: true,
         date: new Date(),
@@ -183,7 +170,6 @@ export default {
     },
     updateProject(project) {
       Vue.delete(project.attachment, 'state');
-      Vue.delete(project.attachment, 'logoState');
       Vue.delete(project, 'new');
       Vue.delete(project, 'result');
       Vue.delete(project, 'result');
@@ -217,26 +203,6 @@ export default {
         })
         .catch(() => {
           project.attachment.state = 'error';
-        });
-    },
-    uploadLogoFile(project, event) {
-      const file = event.target.files[0];
-
-      if (!file) {
-        return;
-      }
-
-      const uploadTask = firebase.storage().ref(`logos/${uuid()}`).put(file);
-
-      Vue.set(project, 'logoState', 'process');
-
-      uploadTask.then(snapshot => snapshot.ref.getDownloadURL())
-        .then((url) => {
-          project.logo = url;
-          project.logoState = 'ok';
-        })
-        .catch(() => {
-          project.logoState = 'error';
         });
     },
     buildLocalesObject() {

@@ -42,7 +42,7 @@
           v-if="project.attachment.type === 'image'"
           :href="project.attachment.url"
         >
-          <img :alt="$t('home.projects.logo')" :src="project.attachment.url" />
+          <img :alt="$t('home.projects.attachment')" :src="project.attachment.url" />
         </a>
 
         <div class="youtube" v-if="project.attachment.type === 'youtube'">
