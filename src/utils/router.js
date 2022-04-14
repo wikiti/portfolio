@@ -6,6 +6,7 @@ import Login from '@/views/Login.vue';
 import Signup from '@/views/Signup.vue';
 
 import auth from '@/utils/auth';
+import i18n from '@/utils/i18n';
 
 Vue.use(Router);
 
@@ -17,6 +18,14 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
+    },
+
+    {
+      path: `/:locale(${i18n.availableLocales.join('|')})`,
+      beforeEnter: (to, from, next) => {
+        i18n.locale = to.params.locale;
+        next('/');
+      }
     },
 
     {
