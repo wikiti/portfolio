@@ -2,6 +2,7 @@ import Vue from 'vue';
 import Router from 'vue-router';
 import Admin from '@/views/Admin.vue';
 import Home from '@/views/Home.vue';
+import Calendar from '@/views/Calendar.vue';
 import Login from '@/views/Login.vue';
 import Signup from '@/views/Signup.vue';
 
@@ -26,6 +27,12 @@ export default new Router({
         i18n.locale = to.params.locale;
         next('/');
       }
+    },
+
+    {
+      path: '/calendar',
+      name: 'calendar',
+      component: Calendar
     },
 
     {
