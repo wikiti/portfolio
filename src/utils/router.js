@@ -1,10 +1,5 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Admin from '@/views/Admin.vue';
-import Home from '@/views/Home.vue';
-import Calendar from '@/views/Calendar.vue';
-import Login from '@/views/Login.vue';
-import Signup from '@/views/Signup.vue';
 
 import auth from '@/utils/auth';
 import i18n from '@/utils/i18n';
@@ -18,7 +13,7 @@ export default new Router({
     {
       path: '/',
       name: 'home',
-      component: Home
+      component: () => import('@/views/Home.vue')
     },
 
     {
@@ -32,13 +27,13 @@ export default new Router({
     {
       path: '/calendar',
       name: 'calendar',
-      component: Calendar
+      component: () => import('@/views/Calendar.vue')
     },
 
     {
       path: '/admin',
       name: 'admin',
-      component: Admin,
+      component: () => import('@/views/Admin.vue'),
       beforeEnter: (to, from, next) => {
         auth.checkAdminUser().then((user) => {
           if (user) {
@@ -54,7 +49,7 @@ export default new Router({
     {
       path: '/login',
       name: 'login',
-      component: Login,
+      component: () => import('@/views/Login.vue'),
       beforeEnter: (to, from, next) => {
         auth.checkUser().then((user) => {
           if (user) {
@@ -70,7 +65,7 @@ export default new Router({
     {
       path: '/signup',
       name: 'signup',
-      component: Signup,
+      component: () => import('@/views/Signup.vue'),
       beforeEnter: (to, from, next) => {
         auth.checkUser().then((user) => {
           if (user) {
@@ -85,7 +80,7 @@ export default new Router({
 
     {
       path: '*',
-      component: Home
+      component: () => import('@/views/Home.vue')
     }
   ]
 });
