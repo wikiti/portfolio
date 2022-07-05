@@ -3,6 +3,7 @@ import App from '@/App.vue';
 import router from '@/utils/router';
 import i18n from '@/utils/i18n';
 
+import 'vue-awesome/icons/brands/artstation';
 import 'vue-awesome/icons/brands/facebook';
 import 'vue-awesome/icons/brands/git';
 import 'vue-awesome/icons/brands/github';
