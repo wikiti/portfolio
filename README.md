@@ -84,6 +84,12 @@ To deploy this application, use:
 npm run deploy
 ```
 
+To only deploy the website (compiled html), run:
+
+```sh
+npm run deploy-web
+```
+
 You may use Firebase CLI tools to deploy independent services:
 
 ```sh
