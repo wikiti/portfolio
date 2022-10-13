@@ -133,9 +133,13 @@ h1.subtitle {
 }
 
 h2 {
-  @include heading(1.5);
+  @include heading(1.6);
 
   margin-top: $huge-spacing;
+  margin-bottom: $huge-spacing;
+  padding-left: $large-spacing;
+
+  border-left: $small-spacing solid $black;
 
   @include respond-to(small) {
     margin-top: $large-spacing;
