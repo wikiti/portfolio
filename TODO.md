@@ -1,3 +1,4 @@
 # TODO
 
+- Create redirects admin
 - ...

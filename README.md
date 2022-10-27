@@ -76,6 +76,16 @@ To fix linting errors, use:
 npm run lint
 ```
 
+### Firebase functions
+
+To emulate and run the firebase functions locally, use `firebase-tools`:
+
+```sh
+npm install -g firebase-tools
+cd functions
+firebase emulators:start
+```
+
 ## Deploy
 
 To deploy this application, use:
