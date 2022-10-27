@@ -152,9 +152,6 @@ export default {
   },
   methods: {
     addEmptyProject() {
-      window.projects = this.projects;
-      window._ = _;
-
       this.projects.push({
         attachment: { type: null, url: null },
         description: this.buildLocalesObject(),

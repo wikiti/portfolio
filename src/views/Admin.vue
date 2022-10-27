@@ -7,6 +7,7 @@
     <Curriculums />
     <Projects />
     <Social />
+    <Redirects />
   </div>
 </template>
 
@@ -15,6 +16,7 @@ import Descriptions from '@/components/admin/Descriptions.vue';
 import Experience from '@/components/admin/Experience.vue';
 import Projects from '@/components/admin/Projects.vue';
 import Curriculums from '@/components/admin/Curriculums.vue';
+import Redirects from '@/components/admin/Redirects.vue';
 import Social from '@/components/admin/Social.vue';
 
 export default {
@@ -24,6 +26,7 @@ export default {
     Experience,
     Projects,
     Curriculums,
+    Redirects,
     Social
   }
 };

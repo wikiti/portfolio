@@ -1,4 +1,4 @@
 # TODO
 
-- Create redirects admin
+- Setup local emulator
 - ...

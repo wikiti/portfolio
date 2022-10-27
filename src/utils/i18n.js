@@ -81,6 +81,15 @@ const messages = {
         save: 'Save',
         delete: 'Delete',
         new: 'New'
+      },
+      redirects: {
+        title: 'Redirects (accessible via /r/{key})',
+        url: 'Url',
+        key: 'Key',
+        error: 'Something went wrong while updating the resource',
+        save: 'Save',
+        delete: 'Delete',
+        new: 'New'
       }
     },
     home: {
@@ -226,6 +235,15 @@ const messages = {
         url: 'Url',
         icon: 'Icono',
         priority: 'Prioridad',
+        save: 'Guardar',
+        delete: 'Borrar',
+        new: 'Nuevo'
+      },
+      redirects: {
+        title: 'Redirecciones (acceso via /r/{clave})',
+        url: 'Url',
+        key: 'Clave',
+        error: 'Ocurrió un error al actualizar el recurso',
         save: 'Guardar',
         delete: 'Borrar',
         new: 'Nuevo'
