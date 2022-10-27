@@ -3,6 +3,7 @@ const functions = require('firebase-functions');
 const cors = require('cors')({ origin: true });
 const mail = require('./mail');
 const users = require('./users');
+const redirects = require('./redirects');
 
 admin.initializeApp();
 
@@ -30,5 +31,18 @@ module.exports = {
 
   userCreated: functions.auth.user().onCreate(user => users.tryRegisterFirstAdmin(user)),
 
-  userRemoved: functions.auth.user().onDelete(user => users.unRegisterAdmin(user))
+  userRemoved: functions.auth.user().onDelete(user => users.unRegisterAdmin(user)),
+
+  redirect: functions.https.onRequest((request, response) => {
+    const id = request.url.split('/').pop();
+
+    redirects.find(id).then((url) => {
+      if (url) {
+        response.redirect(url);
+      }
+      else {
+        response.redirect(`${request.protocol}://${request.hostname}`);
+      }
+    });
+  })
 };
