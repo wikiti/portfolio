@@ -18,5 +18,29 @@
   },
   "storage": {
     "rules": "storage.rules"
+  },
+  "functions": {
+    "source": "functions"
+  },
+  "emulators": {
+    "auth": {
+      "port": 5551
+    },
+    "functions": {
+      "port": 5552
+    },
+    "database": {
+      "port": 5553
+    },
+    "storage": {
+      "port": 5554
+    },
+    "hosting": {
+      "port": 5555
+    },
+    "ui": {
+      "enabled": true
+    },
+    "singleProjectMode": true
   }
 }

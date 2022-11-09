@@ -24,10 +24,11 @@ Finally, update the `.env` file with the desired ids and keys.
 | ----------------------------- | ----------------------------------- |
 | VUE_APP_FIREBASE_API_KEY      | Firebase API key                    |
 | VUE_APP_FIREBASE_AUTH         | Firebase Auth endpoint              |
-| VUE_APP_FIREBASE_BATABASE_URL | Firebase Realtime Database endpoint |
+| VUE_APP_FIREBASE_DATABASE_URL | Firebase Realtime Database endpoint |
 | VUE_APP_FIREBASE_STORAGE_URL  | Firebase storage endpoint           |
 | VUE_APP_FIREBASE_PROJECT_ID   | Firebase project id                 |
 | VUE_APP_THEME_COLOR           | Theme color for mobile browsers     |
+| VUE_APP_HOST                  | Host were this app will be hosted   |
 
 You may now start a development server:
 
@@ -42,27 +43,37 @@ Users can be created under the `/signup` path. The first created user will be th
 Here's the directory tree for this project:
 
 ```
-- dist            # Compiled frontend files
-- functions       # Firebase functions (backend) directory
-- public          # Public assets
-- src             # Frontend source files
-  |- assets       # Assets (stylesheets)
-  |- components   # Reusable Vue components
-  |- resources    # HTTP resources (Firebase realtime database)
-  |- store        # Vuex store
-  |- utils        # Utils and other classes
-  |- views        # Vue-router views
-  |- App.vue      # Main Vue application
-  |- main.js      # Entry point
+- dist/            # Compiled frontend files
+- functions/       # Firebase functions (backend) directory
+- public/          # Public assets
+- src/             # Frontend source files
+  |- assets/       # Assets (stylesheets)
+  |- components/   # Reusable Vue components
+  |- mixins/       # Reusable Vue mixins
+  |- resources/    # HTTP resources (Firebase realtime database)
+  |- store/        # Vuex store
+  |- utils/        # Utils and other classes
+  |- views/        # Vue-router views
+  |- App.vue       # Main Vue application
+  |- main.js       # Entry point
 ```
 
 ## Development
 
-To serve the Vue application locally, use:
+To you must run both the frontend (vue app) and the backend (firebase emulator):
 
 ```sh
-npm run serve
+# Both backend and frontend
+npm run dev
+
+# Backend only
+npm run dev:backend
+
+# Frontend only
+npm run dev:backend
 ```
+
+The application should be locally accessible at `http://localhost:5003`.
 
 To build the Vue application on production mode, use:
 
@@ -76,34 +87,19 @@ To fix linting errors, use:
 npm run lint
 ```
 
-### Firebase functions
-
-To emulate and run the firebase functions locally, use `firebase-tools`:
-
-```sh
-npm install -g firebase-tools
-cd functions
-firebase emulators:start
-```
-
 ## Deploy
 
-To deploy this application, use:
+To deploy this application, use the `deploy:*` tasks:
 
 ```sh
+# Deploy all
 npm run deploy
-```
 
-To only deploy the website (compiled html), run:
+# Deploy only the website
+npm run deploy:hosting
 
-```sh
-npm run deploy-web
-```
-
-You may use Firebase CLI tools to deploy independent services:
-
-```sh
-node_modules/.bin/firebase deploy --only-functions
+# Deploy only the Firebase functions
+npm run deploy:functions
 ```
 
 ## References

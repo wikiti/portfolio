@@ -2,12 +2,12 @@ const functions = require('firebase-functions');
 const nodemailer = require('nodemailer');
 
 const transporter = nodemailer.createTransport({
-  host: functions.config().mail.host,
-  port: functions.config().mail.port || 587,
+  host: functions.config().mail?.host,
+  port: functions.config().mail?.port || 587,
   secure: false,
   auth: {
-    user: functions.config().mail.user,
-    pass: functions.config().mail.password
+    user: functions.config().mail?.user,
+    pass: functions.config().mail?.password
   },
   tls: {
     rejectUnauthorized: false
@@ -17,8 +17,8 @@ const transporter = nodemailer.createTransport({
 module.exports = {
   send(subject, body) {
     const mailOptions = {
-      from: `Portfolio Web <${functions.config().mail.user}>`,
-      to: functions.config().mail.to,
+      from: `Portfolio Web <${functions.config().mail?.user}>`,
+      to: functions.config().mail?.to,
       subject: subject,
       html: body
     };
