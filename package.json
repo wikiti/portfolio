@@ -10,7 +10,7 @@
     "lint": "vue-cli-service lint",
     "deploy": "vue-cli-service build && firebase deploy",
     "deploy:hosting": "vue-cli-service build && firebase deploy --only hosting",
-    "deploy:functions": "vue-cli-service build && firebase deploy --only functions"
+    "deploy:functions": "firebase deploy --only functions"
   },
   "dependencies": {
     "firebase": "^8.10.0",
