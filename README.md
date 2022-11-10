@@ -20,15 +20,16 @@ node_modules/.bin/firebase use [your_project_id]
 
 Finally, update the `.env` file with the desired ids and keys.
 
-| Env variable                  | Description                         |
-| ----------------------------- | ----------------------------------- |
-| VUE_APP_FIREBASE_API_KEY      | Firebase API key                    |
-| VUE_APP_FIREBASE_AUTH         | Firebase Auth endpoint              |
-| VUE_APP_FIREBASE_DATABASE_URL | Firebase Realtime Database endpoint |
-| VUE_APP_FIREBASE_STORAGE_URL  | Firebase storage endpoint           |
-| VUE_APP_FIREBASE_PROJECT_ID   | Firebase project id                 |
-| VUE_APP_THEME_COLOR           | Theme color for mobile browsers     |
-| VUE_APP_HOST                  | Host were this app will be hosted   |
+| Env variable                        | Description                         |
+| ----------------------------------- | ----------------------------------- |
+| VUE_APP_FIREBASE_API_KEY            | Firebase API key                    |
+| VUE_APP_FIREBASE_AUTH               | Firebase Auth endpoint              |
+| VUE_APP_FIREBASE_DATABASE_URL       | Firebase Realtime Database endpoint |
+| VUE_APP_FIREBASE_STORAGE_URL        | Firebase storage endpoint           |
+| VUE_APP_FIREBASE_PROJECT_ID         | Firebase project id                 |
+| VUE_APP_FIREBASE_FUNCTIONS_EMULATOR | Firebase functions emulator (local) |
+| VUE_APP_THEME_COLOR                 | Theme color for mobile browsers     |
+| VUE_APP_HOST                        | Host were this app will be hosted   |
 
 You may now start a development server:
 
