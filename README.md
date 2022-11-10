@@ -1,6 +1,6 @@
 # Daniel Herzog's portfolio
 
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
+[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md) ![](https://github.com/wikiti/portfolio/actions/workflows/deploy.yml/badge.svg)
 
 Made with :heart: with - [Vue.js](https://vuejs.org/) and [Firebase](https://firebase.google.com)
 
