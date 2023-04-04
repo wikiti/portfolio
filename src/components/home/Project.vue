@@ -99,6 +99,10 @@ $image-height: 150px;
 $small-image-width: 100px;
 
 .project {
+  @extend %left-bordered;
+
+  border-color: $light-gray;
+  padding-left: $large-spacing;
   margin-bottom: $large-spacing;
 }
 

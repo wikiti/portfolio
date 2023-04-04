@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "concurrently npm:dev:*",
-    "dev:backend": "firebase emulators:start",
+    "dev:backend": "firebase emulators:start --import .firebase/export --export-on-exit",
     "dev:frontend": "vue-cli-service build --mode development --watch --no-clean",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",

@@ -30,6 +30,14 @@
   border: 1px solid $black;
 }
 
+%left-bordered {
+  @extend %bordered;
+
+  border-top: none;
+  border-right: none;
+  border-bottom: none;
+}
+
 %bold {
   font-weight: bold;
 }
@@ -303,14 +311,10 @@ input[type='date']::-webkit-outer-spin-button {
 }
 
 fieldset {
-  @extend %bordered;
+  @extend %left-bordered;
 
   margin-bottom: $large-spacing;
   padding: $no-spacing $no-spacing $small-spacing $medium-spacing;
-
-  border-top: none;
-  border-right: none;
-  border-bottom: none;
 }
 
 // Loading and spinners

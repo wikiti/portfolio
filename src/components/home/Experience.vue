@@ -3,7 +3,7 @@
     <h2>{{ $t('home.experience.title') }}</h2>
 
     <div v-if="experience">
-      <div v-for="item in experience" :key="item.id">
+      <div v-for="item in experience" :key="item.id" class="experience">
         <h3>{{ $t('home.experience.position', item) }}</h3>
         <h4>{{ prettifyDateRange(item.startedAt, item.endedAt) }}</h4>
 
@@ -38,3 +38,15 @@ export default {
   }
 };
 </script>
+
+<style scoped lang="scss">
+@import '@/assets/stylesheets/globals.scss';
+
+.experience {
+  @extend %left-bordered;
+
+  border-color: $light-gray;
+  padding-left: $large-spacing;
+  margin-bottom: $large-spacing;
+}
+</style>
