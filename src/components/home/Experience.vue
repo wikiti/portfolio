@@ -3,11 +3,13 @@
     <h2>{{ $t('home.experience.title') }}</h2>
 
     <div v-if="experience">
-      <div v-for="item in experience" :key="item.id" class="experience">
+      <div v-for="item in experience" :key="item.id">
         <h3>{{ $t('home.experience.position', item) }}</h3>
-        <h4>{{ prettifyDateRange(item.startedAt, item.endedAt) }}</h4>
 
-        <p>{{ item.description[$i18n.locale] }}</p>
+        <div class="experience-details">
+          <h4>{{ prettifyDateRange(item.startedAt, item.endedAt) }}</h4>
+          <p>{{ item.description[$i18n.locale] }}</p>
+        </div>
       </div>
     </div>
   </div>
@@ -42,11 +44,10 @@ export default {
 <style scoped lang="scss">
 @import '@/assets/stylesheets/globals.scss';
 
-.experience {
+.experience-details {
   @extend %left-bordered;
 
   border-color: $light-gray;
-  padding-left: $large-spacing;
-  margin-bottom: $large-spacing;
+  padding-left: $medium-spacing;
 }
 </style>

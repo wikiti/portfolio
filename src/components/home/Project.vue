@@ -5,16 +5,18 @@
         {{ project.name }} - {{ $t(`home.projects.types.${project.type}`) }}
       </h3>
 
-      <h4>{{ projectDates }}</h4>
+      <div class="project-details">
+        <h4>{{ projectDates }}</h4>
 
-      <p v-html="project.short[$i18n.locale]" />
+        <p v-html="project.short[$i18n.locale]" />
 
-      <div>
-        <a v-if="project.resource" target="_blank" :href="project.resource.url">{{
-          $t(`home.projects.resources.${project.resource.type}`)
-        }}</a>
+        <div>
+          <a v-if="project.resource" target="_blank" :href="project.resource.url">{{
+            $t(`home.projects.resources.${project.resource.type}`)
+          }}</a>
 
-        <a href="#modal" @click="openModal">{{ $t('home.projects.info') }}</a>
+          <a href="#modal" @click="openModal">{{ $t('home.projects.info') }}</a>
+        </div>
       </div>
     </div>
 
@@ -99,11 +101,14 @@ $image-height: 150px;
 $small-image-width: 100px;
 
 .project {
+  margin-bottom: $large-spacing;
+}
+
+.project-details {
   @extend %left-bordered;
 
   border-color: $light-gray;
-  padding-left: $large-spacing;
-  margin-bottom: $large-spacing;
+  padding-left: $medium-spacing;
 }
 
 .links {
