@@ -26,3 +26,4 @@ ui-debug.log
 .firebase
 firebase-debug.log*
 database-debug.log*
+firebase-export-*/
