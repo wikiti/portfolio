@@ -151,7 +151,7 @@ const messages = {
         contact: {
           title: 'Contact',
           email: {
-            value: 'info@danielherzog.es'
+            value: 'me@danielherzog.es'
           }
         },
         tools: `
@@ -309,7 +309,7 @@ const messages = {
         contact: {
           title: 'Contacto',
           email: {
-            value: 'info@danielherzog.es'
+            value: 'yo@danielherzog.es'
           }
         },
         tools: `
